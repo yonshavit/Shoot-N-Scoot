@@ -24,10 +24,10 @@ namespace Assets.Scripts.GameLogic
 
             lives = new Image[currHealthValue];
 
-            //foreach (var life in lives)
-            //{
-            //    life = Instantiate(heartFull, );
-            //}
+            for (var i = 0; i < lives.Length; i++)
+            {
+                lives[i] = Instantiate(heartFull, Vector3.zero, Quaternion.identity);
+            }
         }
 
         public int Score

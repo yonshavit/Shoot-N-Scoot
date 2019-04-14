@@ -8,11 +8,11 @@ using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.Collision
 {
-    public class AbsorbingTile : ICollidable
+    public class AbsorbingTile : Collidable
     {
         [SerializeField] private AudioSource[] sfx;
 
-        public bool HandleCollision(Projectile p)
+        public override bool HandleCollision(Projectile p)
         {
             sfx[Random.Range(0, sfx.Length)].Play();
             p.HandleAbsorption();

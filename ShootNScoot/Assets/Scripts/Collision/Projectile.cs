@@ -80,7 +80,7 @@ namespace Assets.Scripts.Collision
             }
             else
             {
-                var collidable = hit.transform.GetComponent<ICollidable>();
+                var collidable = hit.transform.GetComponent<Collidable>();
 
                 // If collided with a collidable object, let it handle this collision and if returns true then move anyways
                 if (collidable != null && collidable.HandleCollision(this))

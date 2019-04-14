@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assets.Scripts.Collision;
+﻿using Assets.Scripts.Collision;
 using UnityEngine;
 
 namespace Assets.Scripts.Control
@@ -11,13 +6,13 @@ namespace Assets.Scripts.Control
     public enum Orientation { Left, DownLeft, Down, DownRight, Right, UpRight, Up, UpLeft }
 
     [RequireComponent(typeof(SpriteRenderer))]
-    public class PlayerController : MonoBehaviour, ICollidable
+    public class PlayerController : Collidable
     {
+        public Orientation LastMovedOrientation { get; private set; }
         [SerializeField] private KeyCode Up;
         [SerializeField] private KeyCode Down;
         [SerializeField] private KeyCode Left;
         [SerializeField] private KeyCode Right;
-        public Orientation LastMovedOrientation { get; private set; }
         [SerializeField] private float moveSpeed = 5f;
         [SerializeField] private float shotCooldownSeconds = 0.4f;
 
@@ -94,7 +89,7 @@ namespace Assets.Scripts.Control
 
         // TODO add shoot event on left mouse click
 
-        public bool HandleCollision(Projectile p)
+        public override bool HandleCollision(Projectile p)
         {
             // TODO complete
 
