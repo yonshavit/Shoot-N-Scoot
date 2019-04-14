@@ -12,7 +12,7 @@ namespace Assets.Scripts.Collision
         [SerializeField] private LayerMask BlockingLayer;
         //private BoxCollider2D myCollider;
         private SpriteRenderer mySpriteRenderer;
-        private float speed;
+        [SerializeField] private float speed;
         private Vector3 myOrigin;
         private float distanceToHead;
         private ProjectileManager manager;
@@ -47,7 +47,7 @@ namespace Assets.Scripts.Collision
                 Destroy(gameObject);
                 return;
             }
-
+            
             mySpriteRenderer.sprite = manager.GetProjectileSprite(index);
 
             transform.right = Vector3.Reflect(transform.right, wallNormal);

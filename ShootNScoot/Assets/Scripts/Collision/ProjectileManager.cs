@@ -44,5 +44,10 @@ namespace Assets.Scripts.Collision
                 projectile.InitProjectile(orgOrientation, speed, head_position, this);
             }
         }
+
+        //private void Start()
+        //{
+        //    InitProjectiles(transform.eulerAngles.z);
+        //}
     }
 }
