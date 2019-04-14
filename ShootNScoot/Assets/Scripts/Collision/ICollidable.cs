@@ -8,6 +8,6 @@ namespace Assets.Scripts.Collision
 {
     public interface ICollidable
     {
-        void HandleCollision(Projectile p);
+        bool HandleCollision(Projectile p);
     }
 }

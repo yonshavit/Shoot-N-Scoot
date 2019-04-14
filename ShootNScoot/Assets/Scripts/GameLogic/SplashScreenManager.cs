@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,8 +47,11 @@ namespace Assets.Scripts.GameLogic
             }
         }
 
-        private IEnumerator<WaitForEndOfFrame> SplashFadeIn()
+        private IEnumerator SplashFadeIn()
         {
+            // Show splash for a bit
+            yield return new WaitForSeconds(1.5f);
+
             while (splashIcon.color.a < threshold)
             {
                 splashIcon.color = Color.Lerp(splashIcon.color, Color.white, Time.deltaTime);

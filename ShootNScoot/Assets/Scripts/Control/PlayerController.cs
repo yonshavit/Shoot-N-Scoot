@@ -18,7 +18,8 @@ namespace Assets.Scripts.Control
         [SerializeField] private KeyCode Left;
         [SerializeField] private KeyCode Right;
         public Orientation LastMovedOrientation { get; private set; }
-        public float moveSpeed = 5f;
+        [SerializeField] private float moveSpeed = 5f;
+        [SerializeField] private float shotCooldownSeconds = 0.4f;
 
         private SpriteRenderer player;
 
@@ -91,9 +92,13 @@ namespace Assets.Scripts.Control
             transform.position += move;
         }
 
-        public void HandleCollision(Projectile p)
+        // TODO add shoot event on left mouse click
+
+        public bool HandleCollision(Projectile p)
         {
-            
+            // TODO complete
+
+            return false;
         }
     }
 }

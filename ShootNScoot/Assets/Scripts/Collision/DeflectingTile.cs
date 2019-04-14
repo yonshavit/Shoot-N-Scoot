@@ -13,10 +13,12 @@ namespace Assets.Scripts.Collision
         [SerializeField] private Vector3 deflectingNormal;
         [SerializeField] private AudioSource[] sfx;
 
-        public void HandleCollision(Projectile p)
+        public bool HandleCollision(Projectile p)
         {
             sfx[Random.Range(0, sfx.Length)].Play();
             p.HandleDeflection(deflectingNormal);
+
+            return true;
         }
     }
 }

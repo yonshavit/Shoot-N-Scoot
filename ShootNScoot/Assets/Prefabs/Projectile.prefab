@@ -93,6 +93,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 3
+  head: 0
+  BlockingLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &8823716894714821630
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +190,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 4
+  head: 0
+  BlockingLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &8823716895684016752
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,6 +287,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 2
+  head: 0
+  BlockingLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &8823716895968962371
 GameObject:
   m_ObjectHideFlags: 0
@@ -399,6 +411,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   index: 1
+  head: 1
+  BlockingLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &8823716896043670965
 GameObject:
   m_ObjectHideFlags: 0

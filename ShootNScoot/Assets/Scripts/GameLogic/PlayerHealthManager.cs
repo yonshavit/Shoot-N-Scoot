@@ -19,12 +19,15 @@ namespace Assets.Scripts.GameLogic
 
         void Start()
         {
-            lives = new Image[Mathf.CeilToInt(currHealthValue / 2.0f)];
+            // Make sure health value starts as an even number!
+            currHealthValue = Mathf.CeilToInt((currHealthValue % 2) / 2.0f);
 
-            foreach (var life in lives)
-            {
-                
-            }
+            lives = new Image[currHealthValue];
+
+            //foreach (var life in lives)
+            //{
+            //    life = Instantiate(heartFull, );
+            //}
         }
 
         public int Score
