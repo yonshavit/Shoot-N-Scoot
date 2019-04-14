@@ -9,6 +9,7 @@ namespace Assets.Scripts.Control
 {
     public enum Orientation { Left, DownLeft, Down, DownRight, Right, UpRight, Up, UpLeft }
 
+    [RequireComponent(typeof(SpriteRenderer))]
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private KeyCode Up;
@@ -17,6 +18,13 @@ namespace Assets.Scripts.Control
         [SerializeField] private KeyCode Right;
         public Orientation LastMovedOrientation { get; private set; }
         public float moveSpeed = 5f;
+
+        private SpriteRenderer player;
+
+        void Start()
+        {
+            player = GetComponent<SpriteRenderer>();
+        }
 
         void Update()
         {
@@ -30,12 +38,14 @@ namespace Assets.Scripts.Control
                 {
                     LastMovedOrientation = Orientation.UpLeft;
                     move.x -= moveSpeed * Time.deltaTime;
+                    player.flipX = true;
                 }
 
                 else if (Input.GetKey(Right))
                 {
                     LastMovedOrientation = Orientation.UpRight;
                     move.x += moveSpeed * Time.deltaTime;
+                    player.flipX = false;
                 }
                 else
                 {
@@ -50,12 +60,14 @@ namespace Assets.Scripts.Control
                 {
                     LastMovedOrientation = Orientation.DownLeft;
                     move.x -= moveSpeed * Time.deltaTime;
+                    player.flipX = true;
                 }
 
                 else if (Input.GetKey(Right))
                 {
                     LastMovedOrientation = Orientation.DownRight;
                     move.x += moveSpeed * Time.deltaTime;
+                    player.flipX = false;
                 }
                 else
                 {
@@ -66,11 +78,13 @@ namespace Assets.Scripts.Control
             {
                 LastMovedOrientation = Orientation.Left;
                 move.x -= moveSpeed * Time.deltaTime;
+                player.flipX = true;
             }
             else if (Input.GetKey(Right))
             {
                 LastMovedOrientation = Orientation.Right;
                 move.x += moveSpeed * Time.deltaTime;
+                player.flipX = false;
             }
 
             transform.position += move;
