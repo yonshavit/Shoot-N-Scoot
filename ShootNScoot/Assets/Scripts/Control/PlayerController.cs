@@ -93,7 +93,7 @@ namespace Assets.Scripts.Control
 
         public void HandleCollision(Projectile p)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
