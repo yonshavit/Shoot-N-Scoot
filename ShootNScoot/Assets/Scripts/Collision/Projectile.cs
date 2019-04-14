@@ -17,9 +17,8 @@ namespace Assets.Scripts.Collision
         private float distanceToHead;
         private ProjectileManager manager;
 
-        public void InitProjectile(float orgOrientation, float speed, Vector3 origin, ProjectileManager manager)
+        public void InitProjectile(float speed, Vector3 origin, ProjectileManager manager)
         {
-            transform.eulerAngles = new Vector3(0, 0, orgOrientation);
             this.speed = speed;
             this.myOrigin = transform.position;
             this.distanceToHead = Vector3.Distance(origin, myOrigin);
@@ -29,6 +28,11 @@ namespace Assets.Scripts.Collision
         public bool IsHead()
         {
             return head;
+        }
+
+        public void HandleImmediateAbsorption()
+        {
+            Destroy(manager.gameObject);
         }
 
         public void HandleAbsorption()
@@ -50,7 +54,7 @@ namespace Assets.Scripts.Collision
             
             mySpriteRenderer.sprite = manager.GetProjectileSprite(index);
 
-            transform.right = Vector3.Reflect(transform.right, wallNormal);
+            transform.right = transform.InverseTransformDirection(Vector3.Reflect(transform.right, wallNormal));
 
         }
 

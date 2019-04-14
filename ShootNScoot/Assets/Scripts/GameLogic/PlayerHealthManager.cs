@@ -26,8 +26,14 @@ namespace Assets.Scripts.GameLogic
 
             for (var i = 0; i < lives.Length; i++)
             {
+                // TODO space them out well
                 lives[i] = Instantiate(heartFull, Vector3.zero, Quaternion.identity);
             }
+        }
+
+        private void ManageLives()
+        {
+            // TODO decrease lives by changing icons well
         }
 
         public int Score
@@ -36,7 +42,7 @@ namespace Assets.Scripts.GameLogic
             set
             {
                 currHealthValue = value;
-                
+                ManageLives();
             }
         }
     }

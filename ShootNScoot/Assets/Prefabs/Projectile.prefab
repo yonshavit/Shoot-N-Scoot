@@ -97,6 +97,7 @@ MonoBehaviour:
   BlockingLayer:
     serializedVersion: 2
     m_Bits: 0
+  speed: 0
 --- !u!1 &8823716894714821630
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +195,7 @@ MonoBehaviour:
   BlockingLayer:
     serializedVersion: 2
     m_Bits: 0
+  speed: 0
 --- !u!1 &8823716895684016752
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +293,7 @@ MonoBehaviour:
   BlockingLayer:
     serializedVersion: 2
     m_Bits: 0
+  speed: 0
 --- !u!1 &8823716895968962371
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +418,7 @@ MonoBehaviour:
   BlockingLayer:
     serializedVersion: 2
     m_Bits: 0
+  speed: 0
 --- !u!1 &8823716896043670965
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,8 +443,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8823716896043670965}
-  m_LocalRotation: {x: -0.0007866271, y: 0.00034634484, z: -0.9999938, w: -0.0034296268}
-  m_LocalPosition: {x: -3.2776692, y: 0.05910301, z: 0.0020198633}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8823716895968962372}
@@ -449,7 +453,7 @@ Transform:
   - {fileID: 8823716894714821631}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.040000003, y: 0.09, z: -180.39299}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8823716896043670967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,8 +466,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab30cd0cf2f441541aa864955e6de172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 3
   projectileCount: 4
-  speed: 0
   proj1: {fileID: 21300026, guid: 1830f100fda30034c976fb21fe371219, type: 3}
   proj2: {fileID: 21300024, guid: 1830f100fda30034c976fb21fe371219, type: 3}
   proj3: {fileID: 21300022, guid: 1830f100fda30034c976fb21fe371219, type: 3}

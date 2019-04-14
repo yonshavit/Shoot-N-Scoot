@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.Collision
@@ -14,7 +9,11 @@ namespace Assets.Scripts.Collision
 
         public override bool HandleCollision(Projectile p)
         {
-            sfx[Random.Range(0, sfx.Length)].Play();
+            if (p.IsHead())
+            {
+                sfx[Random.Range(0, sfx.Length)].Play();
+            }
+
             p.HandleAbsorption();
 
             return false;

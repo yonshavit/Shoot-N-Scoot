@@ -9,8 +9,8 @@ namespace Assets.Scripts.Collision
 {
     public class ProjectileManager : MonoBehaviour
     {
-        [SerializeField] private int projectileCount;
         public float speed;
+        [SerializeField] private int projectileCount;
         [SerializeField] private Sprite proj1;
         [SerializeField] private Sprite proj2;
         [SerializeField] private Sprite proj3;
@@ -34,14 +34,15 @@ namespace Assets.Scripts.Collision
             }
         }
 
-        public void InitProjectiles(float orgOrientation)
+        public void InitProjectiles()
         {
             var projectiles = GetComponentsInChildren<Projectile>();
             projectileCount = projectiles.Length;
-            var head_position = projectiles[0].transform.position;
+            var headPosition = projectiles[0].transform.position;
+
             foreach (var projectile in projectiles)
             {
-                projectile.InitProjectile(orgOrientation, speed, head_position, this);
+                projectile.InitProjectile(speed, headPosition, this);
             }
         }
 

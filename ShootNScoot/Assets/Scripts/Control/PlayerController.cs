@@ -14,10 +14,10 @@ namespace Assets.Scripts.Control
         [SerializeField] private KeyCode Left;
         [SerializeField] private KeyCode Right;
         [SerializeField] private float moveSpeed = 5f;
-        [SerializeField] private float shotCooldownSeconds = 0.4f;
+        [SerializeField] private AudioSource[] sfx;
 
         private SpriteRenderer player;
-
+        
         void Start()
         {
             player = GetComponent<SpriteRenderer>();
@@ -87,10 +87,15 @@ namespace Assets.Scripts.Control
             transform.position += move;
         }
 
-        // TODO add shoot event on left mouse click
-
         public override bool HandleCollision(Projectile p)
         {
+            if (p.IsHead())
+            {
+                sfx[Random.Range(0, sfx.Length)].Play();
+            }
+
+            p.HandleImmediateAbsorption();
+
             // TODO complete
 
             return false;

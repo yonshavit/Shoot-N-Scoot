@@ -13,9 +13,18 @@ namespace Assets.Scripts.Collision
         [SerializeField] private Vector3 deflectingNormal;
         [SerializeField] private AudioSource[] sfx;
 
+        public void SetDeflectingNormal(Vector3 normal)
+        {
+            deflectingNormal = normal;
+        }
+
         public override bool HandleCollision(Projectile p)
         {
-            sfx[Random.Range(0, sfx.Length)].Play();
+            if (p.IsHead())
+            {
+                sfx[Random.Range(0, sfx.Length)].Play();
+            }
+
             p.HandleDeflection(deflectingNormal);
 
             return true;
