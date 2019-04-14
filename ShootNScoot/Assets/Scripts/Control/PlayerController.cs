@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Scripts.Collision;
 using UnityEngine;
 
 namespace Assets.Scripts.Control
@@ -10,7 +11,7 @@ namespace Assets.Scripts.Control
     public enum Orientation { Left, DownLeft, Down, DownRight, Right, UpRight, Up, UpLeft }
 
     [RequireComponent(typeof(SpriteRenderer))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, ICollidable
     {
         [SerializeField] private KeyCode Up;
         [SerializeField] private KeyCode Down;
@@ -88,6 +89,11 @@ namespace Assets.Scripts.Control
             }
 
             transform.position += move;
+        }
+
+        public void HandleCollision(Projectile p)
+        {
+            throw new NotImplementedException();
         }
     }
 }
