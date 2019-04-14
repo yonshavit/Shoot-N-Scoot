@@ -29,16 +29,20 @@ namespace Assets.Scripts.Collision
             Destroy(gameObject);
         }
 
-        public void HandleDeflection()
+        public void HandleDeflection(Vector3 wallNormal)
         {
-            index--;
-            if (index == 0)
+            index++;
+            if (index == 5)
             {
                 manager.DecreaseProjectileCounter();
                 Destroy(gameObject);
+                return;
             }
 
             mySpriteRenderer.sprite = manager.GetProjectileSprite(index);
+
+            transform.right = Vector3.Reflect(transform.right, wallNormal);
+
         }
 
         private void Move()
@@ -59,7 +63,7 @@ namespace Assets.Scripts.Collision
 
         void Update()
         {
-            // TODO complete
+            this.Move();
         }
     }
 }
