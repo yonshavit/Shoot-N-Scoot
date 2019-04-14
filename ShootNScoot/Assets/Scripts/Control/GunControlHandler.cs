@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Collision;
+﻿using System.Collections.Generic;
+using Assets.Scripts.Collision;
 using UnityEngine;
 
 namespace Assets.Scripts.Control
@@ -7,6 +8,7 @@ namespace Assets.Scripts.Control
     public class GunControlHandler : MonoBehaviour
     {
         [SerializeField] private float shotCooldownSeconds = 0.4f;
+        [SerializeField] private float shotFireOffset = 1.5f;
         [SerializeField] private ProjectileManager projectileManager;
 
         private float lastShotTime;
@@ -25,7 +27,7 @@ namespace Assets.Scripts.Control
             var cursor = Input.mousePosition;
 
             var targetDirection = (cursor - origin).normalized;
-            var targetAngle = (Mathf.Atan2(targetDirection.y, targetDirection.x) - Mathf.PI) *
+            var targetAngle = (Mathf.Atan2(targetDirection.y, targetDirection.x) - Mathf.PI) * // TODO fix gun image and remove this
                               Mathf.Rad2Deg;
 
             transform.rotation = Quaternion.AngleAxis(targetAngle, Vector3.forward);
@@ -43,8 +45,13 @@ namespace Assets.Scripts.Control
                     // Cooldown has passed, player may shoot again
                     lastShotTime = Time.time;
 
+                    // Compensate for the fact that the gun is backwards for some reason
+                    var projAngle = targetAngle + Mathf.PI * Mathf.Rad2Deg; // TODO fix gun image and remove this
+
                     // Create a new projectile and initiate it
-                    var newProjectile = Instantiate(projectileManager, transform.position, Quaternion.AngleAxis(targetAngle, Vector3.forward));
+                    var newProjectile = Instantiate(projectileManager, 
+                        transform.position - transform.right * shotFireOffset, 
+                        Quaternion.AngleAxis(projAngle, Vector3.forward));
 
                     newProjectile.InitProjectiles();
                 }
