@@ -23,6 +23,7 @@ namespace Assets.Scripts.Control
         [SerializeField] private float iframesBlinkRateSeconds = 0.3f;
         [SerializeField] private BoxCollider2D playerMoveCollider;
         [SerializeField] private LayerMask movementBlockMask;
+        [SerializeField] private Color iframeColor = new Color(1,1,1, 0.5f);
 
         private float lastiFramesStart;
         private SpriteRenderer playerSprite;
@@ -125,10 +126,11 @@ namespace Assets.Scripts.Control
 
             while (Time.time - startTime < iframesTimeSeconds)
             {
-                
+                var currColor = playerSprite.material.color;
+
                 // Flip between showing and hiding the player during iframes
-                playerSprite.enabled = !playerSprite.enabled;
-                weaponRenderer.enabled = !weaponRenderer.enabled;
+                playerSprite.material.color = (Color.white == currColor) ? iframeColor : Color.white;
+                weaponRenderer.material.color = (Color.white == currColor) ? iframeColor : Color.white;
 
                 yield return new WaitForSeconds(iframesBlinkRateSeconds);
             }
