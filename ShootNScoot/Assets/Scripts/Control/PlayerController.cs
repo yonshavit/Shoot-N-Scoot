@@ -30,14 +30,14 @@ namespace Assets.Scripts.Control
         private SpriteRenderer weaponRenderer;
         private AudioSource audio;
         private PlayerHealthManager health;
-        private Canvas playerCanvas;
+        //private Canvas playerCanvas;
 
         void Start()
         {
             playerSprite = GetComponent<SpriteRenderer>();
             weaponRenderer = GetComponentInChildren<WeaponController>().GetComponent<SpriteRenderer>();
             health = GetComponent<PlayerHealthManager>();
-            playerCanvas = GetComponentInChildren<Canvas>();
+            //playerCanvas = GetComponentInChildren<Canvas>();
             audio = GetComponent<AudioSource>();
 
             // Don't blink on game start
@@ -164,6 +164,7 @@ namespace Assets.Scripts.Control
 
                 // Handle being hit by a projectile
                 p.HandleImmediateAbsorption();
+                health.Score--;
                 lastiFramesStart = Time.time;
                 StartCoroutine(HandleiFrames(lastiFramesStart));
                 return false;

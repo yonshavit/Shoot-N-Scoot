@@ -44,7 +44,32 @@ namespace Assets.Scripts.GameLogic
 
         private void ManageLives()
         {
-            // TODO decrease lives by changing icons well
+            for (var i = 0; i < lives.Length / 2; i++)
+            {
+                var currHeartMinHealth = (i + 1) * 2;
+
+                if (currHealthValue >= currHeartMinHealth)
+                {
+                    if (lives[i].sprite != heartFull.sprite)
+                    {
+                        lives[i].sprite = heartFull.sprite;
+                    }
+                }
+                else if (currHealthValue >= currHeartMinHealth - 1)
+                {
+                    if (lives[i].sprite != heartHalf.sprite)
+                    {
+                        lives[i].sprite = heartHalf.sprite;
+                    }
+                }
+                else
+                {
+                    if (lives[i].sprite != heartEmpty.sprite)
+                    {
+                        lives[i].sprite = heartEmpty.sprite;
+                    }
+                }
+            }
         }
 
         public int Score

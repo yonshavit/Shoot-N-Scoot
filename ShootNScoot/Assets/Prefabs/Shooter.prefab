@@ -420,7 +420,7 @@ MonoBehaviour:
     type: 3}
   heartHalf: {fileID: 1210328376505403766, guid: 1c769ae02c1528c4ba4bf28a3d858b79,
     type: 3}
-  heartEmpty: {fileID: 343875006041039957, guid: 3e902f82d676651478f1efe465eb41da,
+  heartEmpty: {fileID: 5330098274904129968, guid: 2508d685c4f67364fa40c1bf36462e65,
     type: 3}
   currHealthValue: 6
   heightOffset: 30
