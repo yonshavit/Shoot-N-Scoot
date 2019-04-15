@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2076045069334212245}
   - component: {fileID: 2076045069334212246}
   m_Layer: 8
-  m_Name: Grid
+  m_Name: Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3996,7 +3996,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4633494099880557, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
       propertyPath: m_Name
-      value: YelloBox (1)
+      value: YellowBox (1)
       objectReference: {fileID: 0}
     - target: {fileID: 1557919285124365187, guid: 83acda8e72c5f914984ff6cd9af1bfc5,
         type: 3}
@@ -4145,7 +4145,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4633494099880557, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
       propertyPath: m_Name
-      value: YelloBox (2)
+      value: YellowBox (2)
       objectReference: {fileID: 0}
     - target: {fileID: 1557919285124365187, guid: 83acda8e72c5f914984ff6cd9af1bfc5,
         type: 3}
@@ -4219,7 +4219,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4633494099880557, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
       propertyPath: m_Name
-      value: YelloBox (3)
+      value: YellowBox (3)
       objectReference: {fileID: 0}
     - target: {fileID: 1557919285124365187, guid: 83acda8e72c5f914984ff6cd9af1bfc5,
         type: 3}
@@ -4293,7 +4293,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4633494099880557, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
       propertyPath: m_Name
-      value: YelloBox
+      value: YellowBox
       objectReference: {fileID: 0}
     - target: {fileID: 1557919285124365187, guid: 83acda8e72c5f914984ff6cd9af1bfc5,
         type: 3}
