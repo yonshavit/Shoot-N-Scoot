@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 4889727594023591492}
   - component: {fileID: 6466794468915348575}
   - component: {fileID: 2778238253133040027}
+  - component: {fileID: 1864889542}
   m_Layer: 9
   m_Name: Gun
   m_TagString: Untagged
@@ -164,8 +165,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2137791441
-  m_SortingLayer: 4
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300086, guid: fbc90106c0ce7714f9529f57cba084dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -194,6 +195,18 @@ MonoBehaviour:
   shotFireOffset: 2
   projectileManager: {fileID: 8823716896043670967, guid: fee7fb1f48c0ac4428a72de9fae0d2a5,
     type: 3}
+--- !u!114 &1864889542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2778238253133040026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93351d36721228c438c67cb75438eb4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8535376048985215296
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +222,8 @@ GameObject:
   - component: {fileID: 437675796322760630}
   - component: {fileID: 7547122495920479817}
   - component: {fileID: 2101969385}
+  - component: {fileID: 1082069178}
+  - component: {fileID: 1082069177}
   m_Layer: 8
   m_Name: Shooter
   m_TagString: Player
@@ -266,8 +281,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1170765281
-  m_SortingLayer: 2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300088, guid: fbc90106c0ce7714f9529f57cba084dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -311,7 +326,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.03, y: 0}
@@ -349,6 +364,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: efc8a171e707c43fcb789f5980dafb79, type: 3}
   iframesTimeSeconds: 3
   iframesBlinkRateSeconds: 0.3
+  playerMoveCollider: {fileID: 1082069178}
 --- !u!114 &7547122495920479817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -464,3 +480,41 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &1082069178
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8535376048985215296}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.33}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.8125, y: 1}
+    newSize: {x: 0.8125, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.52, y: 0.16}
+  m_EdgeRadius: 0
+--- !u!114 &1082069177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8535376048985215296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93351d36721228c438c67cb75438eb4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
