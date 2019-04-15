@@ -4,15 +4,14 @@ using UnityEngine;
 namespace Assets.Scripts.Collision
 {
     [RequireComponent(typeof(SpriteRenderer))]
-    //[RequireComponent(typeof(BoxCollider2D))]
     public class Projectile : MonoBehaviour
     {
         [SerializeField] private int index;
         [SerializeField] private bool head;
         [SerializeField] private LayerMask BlockingLayer;
-        //private BoxCollider2D myCollider;
-        private SpriteRenderer mySpriteRenderer;
         [SerializeField] private float speed;
+        
+        private SpriteRenderer mySpriteRenderer;
         private Vector3 myOrigin;
         private float distanceToHead;
         private ProjectileManager manager;
@@ -54,8 +53,7 @@ namespace Assets.Scripts.Collision
             
             mySpriteRenderer.sprite = manager.GetProjectileSprite(index);
 
-            transform.right = transform.InverseTransformDirection(Vector3.Reflect(transform.right, wallNormal));
-
+            transform.right = Vector3.Reflect(transform.right, wallNormal);
         }
 
         private void EnableSprite()
@@ -73,9 +71,7 @@ namespace Assets.Scripts.Collision
             var end = start + moveDirAbsolute;
             RaycastHit2D hit;
 
-            //myCollider.enabled = false;
             hit = Physics2D.Linecast(start, end, BlockingLayer);
-            //myCollider.enabled = true;
 
             // Move if did not hit anything or react if did
             if (hit.transform == null)

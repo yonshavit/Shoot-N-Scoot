@@ -11,7 +11,14 @@ namespace Assets.Scripts.Collision
     public class DeflectingTile : Collidable
     {
         [SerializeField] private Vector3 deflectingNormal;
-        [SerializeField] private AudioSource[] sfx;
+        [SerializeField] private AudioClip[] sfx;
+
+        private AudioSource audio;
+
+        void Start()
+        {
+            audio = GetComponent<AudioSource>();
+        }
 
         public void SetDeflectingNormal(Vector3 normal)
         {
@@ -22,7 +29,8 @@ namespace Assets.Scripts.Collision
         {
             if (p.IsHead())
             {
-                sfx[Random.Range(0, sfx.Length)].Play();
+                audio.clip = sfx[Random.Range(0, sfx.Length)];
+                audio.Play();
             }
 
             p.HandleDeflection(deflectingNormal);

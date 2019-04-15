@@ -66,8 +66,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -632008113
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300022, guid: 1830f100fda30034c976fb21fe371219, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.47058824}
@@ -96,7 +96,7 @@ MonoBehaviour:
   head: 0
   BlockingLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   speed: 0
 --- !u!1 &8823716894714821630
 GameObject:
@@ -164,8 +164,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -632008113
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300020, guid: 1830f100fda30034c976fb21fe371219, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.47058824}
@@ -194,7 +194,7 @@ MonoBehaviour:
   head: 0
   BlockingLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   speed: 0
 --- !u!1 &8823716895684016752
 GameObject:
@@ -262,8 +262,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -632008113
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300024, guid: 1830f100fda30034c976fb21fe371219, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.47058824}
@@ -292,7 +292,7 @@ MonoBehaviour:
   head: 0
   BlockingLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   speed: 0
 --- !u!1 &8823716895968962371
 GameObject:
@@ -361,8 +361,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -632008113
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300026, guid: 1830f100fda30034c976fb21fe371219, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -417,7 +417,7 @@ MonoBehaviour:
   head: 1
   BlockingLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   speed: 0
 --- !u!1 &8823716896043670965
 GameObject:

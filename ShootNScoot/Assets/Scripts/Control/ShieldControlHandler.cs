@@ -31,8 +31,8 @@ namespace Assets.Scripts.Control
             var z = transform.rotation.eulerAngles.z;
             shield.flipY = z > 90 && z < 270;
 
-            // The opposite of the right direction will be the normal of the shield
-            deflecting.SetDeflectingNormal(-transform.right);
+            // The right direction will be the normal of the shield
+            deflecting.SetDeflectingNormal(transform.right);
         }
     }
 }

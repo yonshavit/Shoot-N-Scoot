@@ -13,10 +13,12 @@ namespace Assets.Scripts.Control
 
         private float lastShotTime;
         private SpriteRenderer gun;
+        private PlayerController player;
 
         void Start()
         {
             gun = GetComponent<SpriteRenderer>();
+            player = GetComponentInParent<PlayerController>();
             lastShotTime = Time.time;
         }
 
@@ -27,8 +29,7 @@ namespace Assets.Scripts.Control
             var cursor = Input.mousePosition;
 
             var targetDirection = (cursor - origin).normalized;
-            var targetAngle = (Mathf.Atan2(targetDirection.y, targetDirection.x) - Mathf.PI) * // TODO fix gun image and remove this
-                              Mathf.Rad2Deg;
+            var targetAngle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg;
 
             transform.rotation = Quaternion.AngleAxis(targetAngle, Vector3.forward);
 
@@ -40,18 +41,15 @@ namespace Assets.Scripts.Control
             #region HandleShoot
             if (Input.GetMouseButtonDown(0))
             {
-                if (Time.time - lastShotTime > shotCooldownSeconds)
+                if (Time.time - lastShotTime > shotCooldownSeconds && !player.IsIniFrame())
                 {
                     // Cooldown has passed, player may shoot again
                     lastShotTime = Time.time;
 
-                    // Compensate for the fact that the gun is backwards for some reason
-                    var projAngle = targetAngle + Mathf.PI * Mathf.Rad2Deg; // TODO fix gun image and remove this
-
                     // Create a new projectile and initiate it
                     var newProjectile = Instantiate(projectileManager, 
-                        transform.position - transform.right * shotFireOffset, 
-                        Quaternion.AngleAxis(projAngle, Vector3.forward));
+                        transform.position + transform.right * shotFireOffset, 
+                        Quaternion.AngleAxis(targetAngle, Vector3.forward));
 
                     newProjectile.InitProjectiles();
                 }
