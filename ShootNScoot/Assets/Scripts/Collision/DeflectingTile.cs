@@ -25,15 +25,12 @@ namespace Assets.Scripts.Collision
         //    deflectingNormal = normal;
         //}
 
-        public override bool HandleCollision(Projectile p, Vector3 hitNormal)
+        public override bool HandleCollision(ProjectileHead p, Vector3 hitNormal)
         {
-            if (p.IsHead())
+            if (sfx.Length > 0)
             {
-                if (sfx.Length > 0)
-                {
-                    audio.clip = sfx[Random.Range(0, sfx.Length)];
-                    audio.Play();
-                }
+                audio.clip = sfx[Random.Range(0, sfx.Length)];
+                audio.Play();
             }
 
             p.HandleDeflection(hitNormal);

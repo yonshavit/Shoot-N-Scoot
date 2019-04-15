@@ -16,7 +16,7 @@ namespace Assets.Scripts.Collision
         [SerializeField] private Sprite proj3;
         [SerializeField] private Sprite proj4;
 
-        public Vector3 headHitNormal;
+        private List<HitData> hits;
 
         public void DecreaseProjectileCounter()
         {
@@ -36,15 +36,36 @@ namespace Assets.Scripts.Collision
             }
         }
 
+        public Vector3 GetFrameMoveSpeed(Vector3 dir)
+        {
+            return speed * dir * Time.deltaTime;
+        }
+
+        public void AddHit(HitData data)
+        {
+            hits.Add(data);
+        }
+
+        public HitData? GetHit(int index)
+        {
+            if (hits.Count > index)
+                return hits[index];
+
+            return null;
+        }
+
         public void InitProjectiles()
         {
-            var projectiles = GetComponentsInChildren<Projectile>();
-            projectileCount = projectiles.Length;
-            var headPosition = projectiles[0].transform.position;
+            hits = new List<HitData>();
+            var head = GetComponentInChildren<ProjectileHead>();
+            var projectiles = GetComponentsInChildren<ProjectileTail>();
+            projectileCount = projectiles.Length + 1; // +1 for head
+
+            head.InitProjectile(speed, this);
 
             foreach (var projectile in projectiles)
             {
-                projectile.InitProjectile(speed, headPosition, this);
+                projectile.InitProjectile(speed, head.transform.position, this);
             }
         }
     }

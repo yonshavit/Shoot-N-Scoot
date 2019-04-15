@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!61 &105103274 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1767531004, guid: 9fd63deb609f65b419ebffd3b3b195b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1786351161745344520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &356878371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -465,6 +471,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1767531005, guid: 9fd63deb609f65b419ebffd3b3b195b2, type: 3}
+      propertyPath: playerMoveCollider
+      value: 
+      objectReference: {fileID: 105103274}
     - target: {fileID: 152997303, guid: 9fd63deb609f65b419ebffd3b3b195b2, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -607,6 +617,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 437675796322760630, guid: ca62b02db59e20146b9a00f83b8fd947,
+        type: 3}
+      propertyPath: movementBlockMask.m_Bits
+      value: 1024
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1627989406, guid: ca62b02db59e20146b9a00f83b8fd947, type: 3}

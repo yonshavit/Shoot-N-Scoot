@@ -21,6 +21,7 @@ namespace Assets.Scripts.Control
         [SerializeField] private float iframesTimeSeconds = 3f;
         [SerializeField] private float iframesBlinkRateSeconds = 0.3f;
         [SerializeField] private BoxCollider2D playerMoveCollider;
+        [SerializeField] private LayerMask movementBlockMask;
 
         private float lastiFramesStart;
         private SpriteRenderer playerSprite;
@@ -104,7 +105,7 @@ namespace Assets.Scripts.Control
             }
 
             playerMoveCollider.enabled = false;
-            var hit = Physics2D.Linecast(transform.position, transform.position + move);
+            var hit = Physics2D.Linecast(transform.position, transform.position + move, movementBlockMask);
             playerMoveCollider.enabled = true;
 
             // Move only if allowed
@@ -112,7 +113,6 @@ namespace Assets.Scripts.Control
             {
                 transform.position += move;
             }
-            
             #endregion
 
             #region HandleiFrames
@@ -137,9 +137,9 @@ namespace Assets.Scripts.Control
             return Time.time - lastiFramesStart < iframesTimeSeconds;
         }
 
-        public override bool HandleCollision(Projectile p, Vector3 hitNormal)
+        public override bool HandleCollision(ProjectileHead p, Vector3 hitNormal)
         {
-            if (!IsIniFrame() && p.IsHead())
+            if (!IsIniFrame())
             {
                 if (sfx.Length > 0)
                 {
