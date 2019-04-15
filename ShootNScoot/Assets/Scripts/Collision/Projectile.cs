@@ -44,6 +44,7 @@ namespace Assets.Scripts.Collision
         public void HandleDeflection(Vector3 wallNormal)
         {
             index++;
+
             if (index == 5)
             {
                 manager.DecreaseProjectileCounter();
@@ -80,12 +81,14 @@ namespace Assets.Scripts.Collision
             }
             else
             {
-                var collidable = hit.transform.GetComponent<Collidable>();
+                // The transform will always be the parent - use the collider to get the actual object that was hit
+                var collidable = hit.collider.GetComponent<Collidable>();
 
                 // If collided with a collidable object, let it handle this collision and if returns true then move anyways
                 if (collidable != null && collidable.HandleCollision(this))
                 {
-                    transform.position = end;
+                    moveDirAbsolute = speed * transform.right * Time.deltaTime;
+                    transform.position = start + moveDirAbsolute;
                 }
             }
 

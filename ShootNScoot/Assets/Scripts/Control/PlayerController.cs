@@ -126,8 +126,11 @@ namespace Assets.Scripts.Control
         {
             if (!IsIniFrame() && p.IsHead())
             {
-                audio.clip = sfx[Random.Range(0, sfx.Length)];
-                audio.Play();
+                if (sfx.Length > 0)
+                {
+                    audio.clip = sfx[Random.Range(0, sfx.Length)];
+                    audio.Play();
+                }
 
                 // Handle being hit by a projectile
                 p.HandleImmediateAbsorption();

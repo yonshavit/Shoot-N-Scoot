@@ -29,8 +29,11 @@ namespace Assets.Scripts.Collision
         {
             if (p.IsHead())
             {
-                audio.clip = sfx[Random.Range(0, sfx.Length)];
-                audio.Play();
+                if (sfx.Length > 0)
+                {
+                    audio.clip = sfx[Random.Range(0, sfx.Length)];
+                    audio.Play();
+                }
             }
 
             p.HandleDeflection(deflectingNormal);
