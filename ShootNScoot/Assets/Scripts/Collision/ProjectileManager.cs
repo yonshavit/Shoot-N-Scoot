@@ -16,6 +16,8 @@ namespace Assets.Scripts.Collision
         [SerializeField] private Sprite proj3;
         [SerializeField] private Sprite proj4;
 
+        public Vector3 headHitNormal;
+
         public void DecreaseProjectileCounter()
         {
             if (projectileCount-- == 0)
@@ -45,10 +47,5 @@ namespace Assets.Scripts.Collision
                 projectile.InitProjectile(speed, headPosition, this);
             }
         }
-
-        //private void Start()
-        //{
-        //    InitProjectiles(transform.eulerAngles.z);
-        //}
     }
 }

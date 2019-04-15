@@ -10,7 +10,7 @@ namespace Assets.Scripts.Collision
 {
     public class DeflectingTile : Collidable
     {
-        [SerializeField] private Vector3 deflectingNormal;
+        //[SerializeField] private Vector3 deflectingNormal;
         [SerializeField] private AudioClip[] sfx;
 
         private AudioSource audio;
@@ -20,12 +20,12 @@ namespace Assets.Scripts.Collision
             audio = GetComponent<AudioSource>();
         }
 
-        public void SetDeflectingNormal(Vector3 normal)
-        {
-            deflectingNormal = normal;
-        }
+        //public void SetDeflectingNormal(Vector3 normal)
+        //{
+        //    deflectingNormal = normal;
+        //}
 
-        public override bool HandleCollision(Projectile p)
+        public override bool HandleCollision(Projectile p, Vector3 hitNormal)
         {
             if (p.IsHead())
             {
@@ -36,7 +36,7 @@ namespace Assets.Scripts.Collision
                 }
             }
 
-            p.HandleDeflection(deflectingNormal);
+            p.HandleDeflection(hitNormal);
 
             return true;
         }

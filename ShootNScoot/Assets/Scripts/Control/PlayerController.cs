@@ -8,6 +8,7 @@ namespace Assets.Scripts.Control
 
     [RequireComponent(typeof(SpriteRenderer))]
     [RequireComponent(typeof(PlayerHealthManager))]
+    [RequireComponent(typeof(BoxCollider2D))]
     public class PlayerController : Collidable
     {
         public Orientation LastMovedOrientation { get; private set; }
@@ -19,9 +20,11 @@ namespace Assets.Scripts.Control
         [SerializeField] private AudioClip[] sfx;
         [SerializeField] private float iframesTimeSeconds = 3f;
         [SerializeField] private float iframesBlinkRateSeconds = 0.3f;
+        [SerializeField] private BoxCollider2D playerMoveCollider;
 
         private float lastiFramesStart;
         private SpriteRenderer playerSprite;
+        private SpriteRenderer weaponRenderer;
         private AudioSource audio;
         private PlayerHealthManager health;
         private Canvas playerCanvas;
@@ -29,6 +32,7 @@ namespace Assets.Scripts.Control
         void Start()
         {
             playerSprite = GetComponent<SpriteRenderer>();
+            weaponRenderer = GetComponentInChildren<WeaponController>().GetComponent<SpriteRenderer>();
             health = GetComponent<PlayerHealthManager>();
             playerCanvas = GetComponentInChildren<Canvas>();
             audio = GetComponent<AudioSource>();
@@ -99,20 +103,31 @@ namespace Assets.Scripts.Control
                 playerSprite.flipX = false;
             }
 
-            transform.position += move;
+            playerMoveCollider.enabled = false;
+            var hit = Physics2D.Linecast(transform.position, transform.position + move);
+            playerMoveCollider.enabled = true;
+
+            // Move only if allowed
+            if (hit.transform == null)
+            {
+                transform.position += move;
+            }
+            
             #endregion
 
             #region HandleiFrames
             // Flip between showing and hiding the player during iframes
-            if (IsIniFrame() && Time.time % iframesBlinkRateSeconds < float.Epsilon)
+            if (IsIniFrame() && (Time.time - lastiFramesStart) % iframesBlinkRateSeconds < 0.02f)
             {
                 playerSprite.enabled = !playerSprite.enabled;
+                weaponRenderer.enabled = !weaponRenderer.enabled;
             }
 
             // Make sure the player is shown by the end
             if (!IsIniFrame() && !playerSprite.enabled)
             {
                 playerSprite.enabled = true;
+                weaponRenderer.enabled = true;
             }
             #endregion
         }
@@ -122,7 +137,7 @@ namespace Assets.Scripts.Control
             return Time.time - lastiFramesStart < iframesTimeSeconds;
         }
 
-        public override bool HandleCollision(Projectile p)
+        public override bool HandleCollision(Projectile p, Vector3 hitNormal)
         {
             if (!IsIniFrame() && p.IsHead())
             {

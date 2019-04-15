@@ -41,8 +41,19 @@ namespace Assets.Scripts.Collision
             Destroy(gameObject);
         }
 
-        public void HandleDeflection(Vector3 wallNormal)
+        public void HandleDeflection(Vector3 hitNormal)
         {
+            // Save hit normal of head for the rest of the crew
+            // Or obtain hit normal
+            //if (IsHead())
+            //{
+            //    manager.headHitNormal = hitNormal;
+            //}
+            //else
+            //{
+            //    hitNormal = manager.headHitNormal;
+            //}
+
             index++;
 
             if (index == 5)
@@ -54,7 +65,7 @@ namespace Assets.Scripts.Collision
             
             mySpriteRenderer.sprite = manager.GetProjectileSprite(index);
 
-            transform.right = Vector3.Reflect(transform.right, wallNormal);
+            transform.right = Vector3.Reflect(transform.right, hitNormal);
         }
 
         private void EnableSprite()
@@ -70,9 +81,7 @@ namespace Assets.Scripts.Collision
             var moveDirAbsolute = speed * transform.right * Time.deltaTime;
             var start = transform.position;
             var end = start + moveDirAbsolute;
-            RaycastHit2D hit;
-
-            hit = Physics2D.Linecast(start, end, BlockingLayer);
+            var hit = Physics2D.Linecast(start, end, BlockingLayer);
 
             // Move if did not hit anything or react if did
             if (hit.transform == null)
@@ -85,19 +94,17 @@ namespace Assets.Scripts.Collision
                 var collidable = hit.collider.GetComponent<Collidable>();
 
                 // If collided with a collidable object, let it handle this collision and if returns true then move anyways
-                if (collidable != null && collidable.HandleCollision(this))
+                if (collidable != null && collidable.HandleCollision(this, hit.normal))
                 {
                     moveDirAbsolute = speed * transform.right * Time.deltaTime;
                     transform.position = start + moveDirAbsolute;
                 }
             }
-
         }
 
         void Start()
         {
             mySpriteRenderer = GetComponent<SpriteRenderer>();
-            //myCollider = GetComponent<BoxCollider2D>();
         }
 
         void Update()

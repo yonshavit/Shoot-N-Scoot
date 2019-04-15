@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Assets.Scripts.Control
 {
     [RequireComponent(typeof(SpriteRenderer))]
-    public class GunControlHandler : MonoBehaviour
+    public class GunControlHandler : WeaponController
     {
         [SerializeField] private float shotCooldownSeconds = 0.4f;
         [SerializeField] private float shotFireOffset = 1.5f;

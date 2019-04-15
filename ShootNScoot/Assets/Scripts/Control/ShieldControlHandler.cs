@@ -10,16 +10,16 @@ namespace Assets.Scripts.Control
 {
     [RequireComponent(typeof(SpriteRenderer))]
     [RequireComponent(typeof(DeflectingTile))]
-    public class ShieldControlHandler : MonoBehaviour
+    public class ShieldControlHandler : WeaponController
     {
         private SpriteRenderer shield;
         private PlayerController player;
-        private DeflectingTile deflecting;
+        //private DeflectingTile deflecting;
 
         void Start()
         {
             shield = GetComponent<SpriteRenderer>();
-            deflecting = GetComponent<DeflectingTile>();
+            //deflecting = GetComponent<DeflectingTile>();
             player = transform.parent.GetComponent<PlayerController>();
         }
 
@@ -30,9 +30,6 @@ namespace Assets.Scripts.Control
             // Flip to maintain weapon orientation
             var z = transform.rotation.eulerAngles.z;
             shield.flipY = z > 90 && z < 270;
-
-            // The right direction will be the normal of the shield
-            deflecting.SetDeflectingNormal(transform.right);
         }
     }
 }

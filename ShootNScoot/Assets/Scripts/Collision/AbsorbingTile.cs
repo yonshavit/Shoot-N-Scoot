@@ -14,7 +14,7 @@ namespace Assets.Scripts.Collision
             audio = GetComponent<AudioSource>();
         }
 
-        public override bool HandleCollision(Projectile p)
+        public override bool HandleCollision(Projectile p, Vector3 hitNormal)
         {
             if (p.IsHead())
             {
