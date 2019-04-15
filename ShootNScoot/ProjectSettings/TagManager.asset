@@ -56,3 +56,6 @@ TagManager:
   - name: Blocking Items
     uniqueID: 3662959183
     locked: 0
+  - name: Temp Projectiles
+    uniqueID: 3489521055
+    locked: 0
