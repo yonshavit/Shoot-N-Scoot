@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Collision;
+﻿using System.Collections.Generic;
+using Assets.Scripts.Collision;
 using Assets.Scripts.GameLogic;
 using UnityEngine;
 
@@ -114,22 +115,34 @@ namespace Assets.Scripts.Control
                 transform.position += move;
             }
             #endregion
+        }
 
-            #region HandleiFrames
-            // Flip between showing and hiding the player during iframes
-            if (IsIniFrame() && (Time.time - lastiFramesStart) % iframesBlinkRateSeconds < 0.02f)
+        private IEnumerator<WaitForSeconds> HandleiFrames(float startTime)
+        {
+            var weapon = weaponRenderer.GetComponent<WeaponController>();
+
+            weapon.WeaponEnable(false);
+
+            while (Time.time - startTime < iframesTimeSeconds)
             {
+                
+                // Flip between showing and hiding the player during iframes
                 playerSprite.enabled = !playerSprite.enabled;
                 weaponRenderer.enabled = !weaponRenderer.enabled;
+
+                yield return new WaitForSeconds(iframesBlinkRateSeconds);
             }
 
+            weapon.WeaponEnable(true);
+
             // Make sure the player is shown by the end
-            if (!IsIniFrame() && !playerSprite.enabled)
+            if (!playerSprite.enabled)
             {
                 playerSprite.enabled = true;
                 weaponRenderer.enabled = true;
             }
-            #endregion
+
+            yield return null;
         }
 
         public bool IsIniFrame()
@@ -150,6 +163,7 @@ namespace Assets.Scripts.Control
                 // Handle being hit by a projectile
                 p.HandleImmediateAbsorption();
                 lastiFramesStart = Time.time;
+                StartCoroutine(HandleiFrames(lastiFramesStart));
                 return false;
             }
 

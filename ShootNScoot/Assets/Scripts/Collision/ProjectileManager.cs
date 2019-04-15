@@ -20,8 +20,12 @@ namespace Assets.Scripts.Collision
 
         public void DecreaseProjectileCounter()
         {
-            if (projectileCount-- == 0)
+            projectileCount--;
+
+            if (projectileCount == 0)
+            {
                 Destroy(gameObject);
+            }
         }
 
         public Sprite GetProjectileSprite(int index)

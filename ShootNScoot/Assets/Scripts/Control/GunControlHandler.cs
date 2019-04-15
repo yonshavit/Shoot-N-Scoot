@@ -14,6 +14,7 @@ namespace Assets.Scripts.Control
         private float lastShotTime;
         private SpriteRenderer gun;
         private PlayerController player;
+        private bool weaponEnabled = true;
 
         void Start()
         {
@@ -39,7 +40,7 @@ namespace Assets.Scripts.Control
             #endregion
 
             #region HandleShoot
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && weaponEnabled)
             {
                 if (Time.time - lastShotTime > shotCooldownSeconds && !player.IsIniFrame())
                 {
@@ -55,6 +56,11 @@ namespace Assets.Scripts.Control
                 }
             }
             #endregion
+        }
+
+        public override void WeaponEnable(bool enabled)
+        {
+            weaponEnabled = enabled;
         }
     }
 }

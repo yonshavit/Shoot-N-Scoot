@@ -13,7 +13,6 @@ namespace Assets.Scripts.Collision
         private SpriteRenderer mySpriteRenderer;
         
         private ProjectileManager manager;
-        
 
         public void InitProjectile(float speed, ProjectileManager manager)
         {
