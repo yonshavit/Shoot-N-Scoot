@@ -14,20 +14,31 @@ namespace Assets.Scripts.GameLogic
         [SerializeField] private Image heartHalf;
         [SerializeField] private Image heartEmpty;
         [SerializeField] private int currHealthValue = 6;
-
+        [SerializeField] private float heightOffset = 50;
+        [SerializeField] private float initWidthOffset = 30;
+        [SerializeField] private float widthDelta = 20;
+        [SerializeField] private bool flipSide = false;
+        private Canvas canvas;
         private Image[] lives;
+        
 
         void Start()
         {
+            canvas = GetComponentInChildren<Canvas>();
+
             // Make sure health value starts as an even number!
-            currHealthValue = Mathf.CeilToInt((currHealthValue % 2) / 2.0f);
+            currHealthValue = currHealthValue + Mathf.CeilToInt((currHealthValue % 2) / 2.0f);
 
             lives = new Image[currHealthValue];
 
-            for (var i = 0; i < lives.Length; i++)
+            initWidthOffset = flipSide ? canvas.pixelRect.xMax - initWidthOffset : initWidthOffset;
+
+            for (var i = 0; i < lives.Length / 2; i++)
             {
-                // TODO space them out well
                 lives[i] = Instantiate(heartFull, Vector3.zero, Quaternion.identity);
+                lives[i].transform.parent = canvas.transform;
+                lives[i].rectTransform.position = new Vector3(initWidthOffset + widthDelta * i * (flipSide ? -1 : 1), 
+                    canvas.pixelRect.yMax - heightOffset, 0);
             }
         }
 

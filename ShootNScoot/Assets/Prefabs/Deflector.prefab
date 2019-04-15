@@ -232,10 +232,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f0f9c11c7257f48feb7f87746b03e573, type: 3}
   iframesTimeSeconds: 3
   iframesBlinkRateSeconds: 0.3
-  playerMoveCollider: {fileID: 2035381471285175494}
+  playerMoveCollider: {fileID: 1767531004}
   movementBlockMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
+  iframeColor: {r: 1, g: 1, b: 1, a: 0.5}
 --- !u!114 &6506692385354406988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,6 +256,10 @@ MonoBehaviour:
   heartEmpty: {fileID: 343875006041039957, guid: 3e902f82d676651478f1efe465eb41da,
     type: 3}
   currHealthValue: 6
+  heightOffset: 30
+  initWidthOffset: 20
+  widthDelta: 35
+  flipSide: 0
 --- !u!82 &105103272
 AudioSource:
   m_ObjectHideFlags: 0
