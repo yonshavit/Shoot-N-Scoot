@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +6,8 @@ namespace Assets.Scripts.GameLogic
 {
     public class PlayerHealthManager : MonoBehaviour
     {
+        public OnHealthEmptyHandler onHealthEmptyHandler;
+
         [SerializeField] private Image heartFull;
         [SerializeField] private Image heartHalf;
         [SerializeField] private Image heartEmpty;
@@ -18,9 +16,10 @@ namespace Assets.Scripts.GameLogic
         [SerializeField] private float initWidthOffset = 30;
         [SerializeField] private float widthDelta = 20;
         [SerializeField] private bool flipSide = false;
+        [SerializeField] private string playerName;
         private Canvas canvas;
         private Image[] lives;
-        
+
 
         void Start()
         {
@@ -79,7 +78,15 @@ namespace Assets.Scripts.GameLogic
             {
                 currHealthValue = value;
                 ManageLives();
+
+                if (currHealthValue == 0)
+                {
+                    onHealthEmptyHandler.Invoke(playerName);
+                }
             }
         }
+
+        [Serializable]
+        public class OnHealthEmptyHandler : UnityEngine.Events.UnityEvent<string> { }
     }
 }

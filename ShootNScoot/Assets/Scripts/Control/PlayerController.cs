@@ -25,20 +25,20 @@ namespace Assets.Scripts.Control
         [SerializeField] private LayerMask movementBlockMask;
         [SerializeField] private Color iframeColor = new Color(1,1,1, 0.5f);
 
+        private bool controllerEnabled;
         private float lastiFramesStart;
         private SpriteRenderer playerSprite;
         private SpriteRenderer weaponRenderer;
         private AudioSource audio;
         private PlayerHealthManager health;
-        //private Canvas playerCanvas;
 
         void Start()
         {
             playerSprite = GetComponent<SpriteRenderer>();
             weaponRenderer = GetComponentInChildren<WeaponController>().GetComponent<SpriteRenderer>();
             health = GetComponent<PlayerHealthManager>();
-            //playerCanvas = GetComponentInChildren<Canvas>();
             audio = GetComponent<AudioSource>();
+            controllerEnabled = true;
 
             // Don't blink on game start
             lastiFramesStart = -iframesTimeSeconds;
@@ -47,74 +47,80 @@ namespace Assets.Scripts.Control
         void Update()
         {
             #region HandleMove
-            var move = new Vector3();
 
-            if (Input.GetKey(Up))
+            if (controllerEnabled)
             {
-                move.y += moveSpeed * Time.deltaTime;
+                var move = new Vector3();
 
-                if (Input.GetKey(Left))
+                if (Input.GetKey(Up))
                 {
-                    LastMovedOrientation = Orientation.UpLeft;
+                    move.y += moveSpeed * Time.deltaTime;
+
+                    if (Input.GetKey(Left))
+                    {
+                        LastMovedOrientation = Orientation.UpLeft;
+                        move.x -= moveSpeed * Time.deltaTime;
+                        playerSprite.flipX = true;
+                    }
+
+                    else if (Input.GetKey(Right))
+                    {
+                        LastMovedOrientation = Orientation.UpRight;
+                        move.x += moveSpeed * Time.deltaTime;
+                        playerSprite.flipX = false;
+                    }
+                    else
+                    {
+                        LastMovedOrientation = Orientation.Up;
+                    }
+                }
+                else if (Input.GetKey(Down))
+                {
+                    move.y -= moveSpeed * Time.deltaTime;
+
+                    if (Input.GetKey(Left))
+                    {
+                        LastMovedOrientation = Orientation.DownLeft;
+                        move.x -= moveSpeed * Time.deltaTime;
+                        playerSprite.flipX = true;
+                    }
+
+                    else if (Input.GetKey(Right))
+                    {
+                        LastMovedOrientation = Orientation.DownRight;
+                        move.x += moveSpeed * Time.deltaTime;
+                        playerSprite.flipX = false;
+                    }
+                    else
+                    {
+                        LastMovedOrientation = Orientation.Down;
+                    }
+                }
+                else if (Input.GetKey(Left))
+                {
+                    LastMovedOrientation = Orientation.Left;
                     move.x -= moveSpeed * Time.deltaTime;
                     playerSprite.flipX = true;
                 }
-
                 else if (Input.GetKey(Right))
                 {
-                    LastMovedOrientation = Orientation.UpRight;
+                    LastMovedOrientation = Orientation.Right;
                     move.x += moveSpeed * Time.deltaTime;
                     playerSprite.flipX = false;
                 }
-                else
+
+                playerMoveCollider.enabled = false;
+                var hit = Physics2D.Linecast(transform.position, transform.position + move,
+                    movementBlockMask);
+                playerMoveCollider.enabled = true;
+
+                // Move only if allowed
+                if (hit.transform == null)
                 {
-                    LastMovedOrientation = Orientation.Up;
+                    transform.position += move;
                 }
             }
-            else if (Input.GetKey(Down))
-            {
-                move.y -= moveSpeed * Time.deltaTime;
 
-                if (Input.GetKey(Left))
-                {
-                    LastMovedOrientation = Orientation.DownLeft;
-                    move.x -= moveSpeed * Time.deltaTime;
-                    playerSprite.flipX = true;
-                }
-
-                else if (Input.GetKey(Right))
-                {
-                    LastMovedOrientation = Orientation.DownRight;
-                    move.x += moveSpeed * Time.deltaTime;
-                    playerSprite.flipX = false;
-                }
-                else
-                {
-                    LastMovedOrientation = Orientation.Down;
-                }
-            }
-            else if (Input.GetKey(Left))
-            {
-                LastMovedOrientation = Orientation.Left;
-                move.x -= moveSpeed * Time.deltaTime;
-                playerSprite.flipX = true;
-            }
-            else if (Input.GetKey(Right))
-            {
-                LastMovedOrientation = Orientation.Right;
-                move.x += moveSpeed * Time.deltaTime;
-                playerSprite.flipX = false;
-            }
-
-            playerMoveCollider.enabled = false;
-            var hit = Physics2D.Linecast(transform.position, transform.position + move, movementBlockMask);
-            playerMoveCollider.enabled = true;
-
-            // Move only if allowed
-            if (hit.transform == null)
-            {
-                transform.position += move;
-            }
             #endregion
         }
 
@@ -145,6 +151,11 @@ namespace Assets.Scripts.Control
             }
 
             yield return null;
+        }
+
+        public void SetControl(bool enable)
+        {
+            controllerEnabled = enable;
         }
 
         public bool IsIniFrame()

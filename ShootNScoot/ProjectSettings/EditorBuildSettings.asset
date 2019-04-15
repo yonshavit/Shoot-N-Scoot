@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 08c4242fc1cdda24a8e3627e7e5321cb
   - enabled: 1
-    path: Assets/Scenes/Shani.unity
-    guid: d55072d8729591e409d91f5eee335427
+    path: Assets/Scenes/Game.unity
+    guid: 4f2b0e0fa94158e488bfc41c42c2247d
   m_configObjects: {}
