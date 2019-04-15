@@ -47,6 +47,12 @@ TagManager:
   - name: Player
     uniqueID: 1170765281
     locked: 0
+  - name: Half Blocking Items
+    uniqueID: 3202516749
+    locked: 0
+  - name: Gun and Shield
+    uniqueID: 2137791441
+    locked: 0
   - name: Blocking Items
     uniqueID: 3662959183
     locked: 0
