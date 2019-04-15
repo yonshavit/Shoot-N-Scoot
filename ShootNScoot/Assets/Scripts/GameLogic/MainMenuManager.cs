@@ -10,14 +10,18 @@ namespace Assets.Scripts.GameLogic
 {
     public class MainMenuManager : MonoBehaviour
     {
+        [SerializeField] Camera bgCamera;
+
         public void LoadByIndex(int sceneIndex)
         {
+            DontDestroyOnLoad(bgCamera);
+
             SceneManager.LoadScene(sceneIndex);
         }
 
         public void Quit()
         {
-            Application.Quit ();
+            Application.Quit();
         }
     }
 }
