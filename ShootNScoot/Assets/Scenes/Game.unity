@@ -548,6 +548,51 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7885847563745662959, guid: 768cfbc2ad213fb42b02f4d2af8b0c0e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885847563745662959, guid: 768cfbc2ad213fb42b02f4d2af8b0c0e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885847563745662959, guid: 768cfbc2ad213fb42b02f4d2af8b0c0e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885847563745662959, guid: 768cfbc2ad213fb42b02f4d2af8b0c0e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885847563745662959, guid: 768cfbc2ad213fb42b02f4d2af8b0c0e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885847563745662959, guid: 768cfbc2ad213fb42b02f4d2af8b0c0e,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885847563745662959, guid: 768cfbc2ad213fb42b02f4d2af8b0c0e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885847563745662959, guid: 768cfbc2ad213fb42b02f4d2af8b0c0e,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885847563745662959, guid: 768cfbc2ad213fb42b02f4d2af8b0c0e,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 768cfbc2ad213fb42b02f4d2af8b0c0e, type: 3}
 --- !u!1001 &1786351161745344520
@@ -617,45 +662,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 152997303, guid: 9fd63deb609f65b419ebffd3b3b195b2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6506692385354406988, guid: 9fd63deb609f65b419ebffd3b3b195b2,
-        type: 3}
-      propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6506692385354406988, guid: 9fd63deb609f65b419ebffd3b3b195b2,
-        type: 3}
-      propertyPath: playerName
-      value: Blue Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6506692385354406988, guid: 9fd63deb609f65b419ebffd3b3b195b2,
-        type: 3}
-      propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6506692385354406988, guid: 9fd63deb609f65b419ebffd3b3b195b2,
-        type: 3}
-      propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6506692385354406988, guid: 9fd63deb609f65b419ebffd3b3b195b2,
         type: 3}
       propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1805874519}
-    - target: {fileID: 6506692385354406988, guid: 9fd63deb609f65b419ebffd3b3b195b2,
-        type: 3}
-      propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HandleGameOver
-      objectReference: {fileID: 0}
-    - target: {fileID: 6506692385354406988, guid: 9fd63deb609f65b419ebffd3b3b195b2,
-        type: 3}
-      propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fd63deb609f65b419ebffd3b3b195b2, type: 3}
 --- !u!1001 &4630228800024112960
@@ -796,38 +807,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7547122495920479817, guid: ca62b02db59e20146b9a00f83b8fd947,
         type: 3}
-      propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7547122495920479817, guid: ca62b02db59e20146b9a00f83b8fd947,
-        type: 3}
-      propertyPath: playerName
-      value: Red Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7547122495920479817, guid: ca62b02db59e20146b9a00f83b8fd947,
-        type: 3}
-      propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7547122495920479817, guid: ca62b02db59e20146b9a00f83b8fd947,
-        type: 3}
-      propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7547122495920479817, guid: ca62b02db59e20146b9a00f83b8fd947,
-        type: 3}
       propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1805874519}
-    - target: {fileID: 7547122495920479817, guid: ca62b02db59e20146b9a00f83b8fd947,
-        type: 3}
-      propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: HandleGameOver
-      objectReference: {fileID: 0}
-    - target: {fileID: 7547122495920479817, guid: ca62b02db59e20146b9a00f83b8fd947,
-        type: 3}
-      propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca62b02db59e20146b9a00f83b8fd947, type: 3}

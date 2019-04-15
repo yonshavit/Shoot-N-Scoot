@@ -249,6 +249,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0a4cec73d7bd0748b9bded8d2bf63cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onHealthEmptyHandler:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: HandleGameOver
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Assets.Scripts.GameLogic.PlayerHealthManager+OnHealthEmptyHandler,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   heartFull: {fileID: 4098514973444924094, guid: 343302405420c724fb94abda1898cb5d,
     type: 3}
   heartHalf: {fileID: 7528100208314870957, guid: d7b18e26a495c2e45b9c8468193c5ef2,
@@ -260,6 +276,7 @@ MonoBehaviour:
   initWidthOffset: 20
   widthDelta: 35
   flipSide: 0
+  playerName: Blue
 --- !u!82 &105103272
 AudioSource:
   m_ObjectHideFlags: 0
@@ -467,8 +484,8 @@ BoxCollider2D:
   m_Offset: {x: 0.62, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: -1.3333334, y: 0.5}
-    oldSize: {x: 0.375, y: 0.875}
+    pivot: {x: -1.6, y: 0.46666667}
+    oldSize: {x: 0.3125, y: 0.9375}
     newSize: {x: 0.375, y: 0.8125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

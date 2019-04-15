@@ -23,8 +23,8 @@ namespace Assets.Scripts.GameLogic
                 player.SetControl(false);
             }
 
-            // TODO replace with buttons!
-            gameOverText.text = playerName + " won!\nPress space to replay";
+            // TODO replace with something generic you lazy fuck
+            gameOverText.text = playerName == "Red" ? "Blue" : "Red" + " player won!\nPress space to replay";
         }
 
         private void DarkenScreen()
