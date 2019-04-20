@@ -22,7 +22,7 @@ namespace Assets.Scripts.GameLogic
 
             foreach (var player in players)
             {
-                player.SetControl(false);
+                player.ControllerEnabled = false;
             }
 
             foreach (var turret in turrets)

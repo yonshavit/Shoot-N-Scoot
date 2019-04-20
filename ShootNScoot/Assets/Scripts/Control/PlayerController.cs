@@ -25,7 +25,7 @@ namespace Assets.Scripts.Control
         [SerializeField] private LayerMask movementBlockMask;
         [SerializeField] private Color iframeColor = new Color(1,1,1, 0.5f);
 
-        private bool controllerEnabled;
+        public bool ControllerEnabled { get; set; }
         private float lastiFramesStart;
         private SpriteRenderer playerSprite;
         private SpriteRenderer weaponRenderer;
@@ -38,7 +38,7 @@ namespace Assets.Scripts.Control
             weaponRenderer = GetComponentInChildren<WeaponController>().GetComponent<SpriteRenderer>();
             health = GetComponent<PlayerHealthManager>();
             audio = GetComponent<AudioSource>();
-            controllerEnabled = true;
+            ControllerEnabled = true;
 
             // Don't blink on game start
             lastiFramesStart = -iframesTimeSeconds;
@@ -48,7 +48,7 @@ namespace Assets.Scripts.Control
         {
             #region HandleMove
 
-            if (controllerEnabled)
+            if (ControllerEnabled)
             {
                 var move = new Vector3();
 
@@ -151,11 +151,6 @@ namespace Assets.Scripts.Control
             }
 
             yield return null;
-        }
-
-        public void SetControl(bool enable)
-        {
-            controllerEnabled = enable;
         }
 
         public bool IsIniFrame()
