@@ -53,6 +53,8 @@ MonoBehaviour:
   players:
   - {fileID: 0}
   - {fileID: 0}
+  turrets:
+  - {fileID: 0}
 --- !u!212 &921677866283569099
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -136,7 +138,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 89.75}
+  m_SizeDelta: {x: 600, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6681590728504652429
 CanvasRenderer:

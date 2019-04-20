@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Control;
+using Assets.Scripts.GameLogic.AI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ namespace Assets.Scripts.GameLogic
     public class GameManager : MonoBehaviour
     {
         [SerializeField] private PlayerController[] players;
+        [SerializeField] private Turret[] turrets;
         private SpriteRenderer screenBlocker;
         private Text gameOverText;
         private bool gameOver = false;
@@ -23,8 +25,13 @@ namespace Assets.Scripts.GameLogic
                 player.SetControl(false);
             }
 
+            foreach (var turret in turrets)
+            {
+                turret.SetControl(false);
+            }
+
             // TODO replace with something generic you lazy fuck
-            gameOverText.text = playerName == "Red" ? "Blue" : "Red" + " player won!\nPress space to replay";
+            gameOverText.text = (playerName == "Red" ? "Blue" : "Red") + " player won!\nPress space to replay";
         }
 
         private void DarkenScreen()
