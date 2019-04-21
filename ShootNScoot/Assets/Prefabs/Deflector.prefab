@@ -273,8 +273,8 @@ MonoBehaviour:
     type: 3}
   currHealthValue: 6
   heightOffset: 30
-  initWidthOffset: 20
-  widthDelta: 35
+  initWidthOffset: 40
+  widthDelta: 75
   flipSide: 0
   playerName: Blue
 --- !u!82 &105103272
@@ -385,8 +385,8 @@ GameObject:
   - component: {fileID: 1786351162366285900}
   - component: {fileID: 1786351162366285901}
   - component: {fileID: 1786351161745344522}
-  - component: {fileID: 776844257}
   - component: {fileID: 776844258}
+  - component: {fileID: 809275213532926148}
   m_Layer: 8
   m_Name: Shield
   m_TagString: Untagged
@@ -494,20 +494,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.125, y: 0.875}
   m_EdgeRadius: 0
---- !u!114 &776844257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1786351162366285898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81608f18c2117644ab8ddfd1ae697637, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sfx:
-  - {fileID: 8300000, guid: 406abe6e803b244eca380af5865dc5cb, type: 3}
 --- !u!82 &776844258
 AudioSource:
   m_ObjectHideFlags: 0
@@ -604,6 +590,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &809275213532926148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786351162366285898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b173db46b31cd840a3cb0b7ace6aec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parryDuration: 0.2
+  parryCooldown: 0.4
+  prefab: {fileID: 8823716896043670967, guid: fee7fb1f48c0ac4428a72de9fae0d2a5, type: 3}
+  sfx:
+  - {fileID: 8300000, guid: 406abe6e803b244eca380af5865dc5cb, type: 3}
 --- !u!1 &2937483677210757630
 GameObject:
   m_ObjectHideFlags: 0

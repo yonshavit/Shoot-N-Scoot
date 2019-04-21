@@ -21,19 +21,22 @@ namespace Assets.Scripts.Collision
 
     public class ProjectileTail : MonoBehaviour
     {
-        [SerializeField] private int spriteIndex;
+        private int spriteIndex;
         private int hitIndex;
         private float initDistanceToHead;
         private Vector3 initOrigin;
         private ProjectileManager manager;
         private SpriteRenderer mySpriteRenderer;
 
-        public void InitProjectile(float speed, Vector3 headOrgPos, ProjectileManager manager)
+        public void InitProjectile(float speed, Vector3 headOrgPos, ProjectileManager manager, int index)
         {
             this.manager = manager;
             initOrigin = transform.position;
             initDistanceToHead = Vector3.Distance(headOrgPos, initOrigin);
-            hitIndex = 0;
+            spriteIndex = index;
+            //gameObject.SetActive(true);
+            mySpriteRenderer.enabled = false;
+            mySpriteRenderer.sprite = manager.GetProjectileSprite(spriteIndex);
         }
 
         private void EnableSprite()
@@ -48,6 +51,7 @@ namespace Assets.Scripts.Collision
         {
             manager.DecreaseProjectileCounter();
             Destroy(gameObject);
+            //gameObject.SetActive(false);
         }
 
         private void HandleDeflection(HitData newHit)
@@ -58,6 +62,7 @@ namespace Assets.Scripts.Collision
             if (spriteIndex == 5)
             {
                 manager.DecreaseProjectileCounter();
+                //gameObject.SetActive(false);
                 Destroy(gameObject);
                 return;
             }
@@ -97,9 +102,10 @@ namespace Assets.Scripts.Collision
             }
         }
 
-        void Start()
+        void Awake()
         {
             mySpriteRenderer = GetComponent<SpriteRenderer>();
+            hitIndex = 0;
         }
 
         void Update()

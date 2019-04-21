@@ -7,16 +7,18 @@ namespace Assets.Scripts.Collision
     [RequireComponent(typeof(SpriteRenderer))]
     public class ProjectileHead : MonoBehaviour
     {
-        [SerializeField] private int index;
         [SerializeField] private LayerMask BlockingLayer;
-        
+
         private SpriteRenderer mySpriteRenderer;
+        private int index;
         
         private ProjectileManager manager;
 
-        public void InitProjectile(float speed, ProjectileManager manager)
+        public void InitProjectile(float speed, ProjectileManager manager, int index)
         {
             this.manager = manager;
+            this.index = index;
+            mySpriteRenderer.sprite = manager.GetProjectileSprite(index);
         }
         
         public void HandleImmediateAbsorption()
@@ -49,6 +51,20 @@ namespace Assets.Scripts.Collision
             manager.AddHit(new HitData(transform.position, transform.right, ActionType.Deflected));
         }
 
+        public void HandleParry(Vector3 hitNormal, ProjectileManager prefab)
+        {
+            // Create a new projectile and destroy this one
+            transform.right = Vector3.Reflect(transform.right, hitNormal);
+
+            var newProjectile = Instantiate(prefab,
+                transform.position + transform.right * 0.4f,
+                transform.rotation);
+
+            newProjectile.InitProjectiles();
+
+            HandleImmediateAbsorption();
+        }
+
         private void Move()
         {
             var start = transform.position;
@@ -73,7 +89,7 @@ namespace Assets.Scripts.Collision
             }
         }
 
-        void Start()
+        void Awake()
         {
             mySpriteRenderer = GetComponent<SpriteRenderer>();
         }

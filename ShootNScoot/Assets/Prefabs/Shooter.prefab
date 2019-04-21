@@ -440,8 +440,8 @@ MonoBehaviour:
     type: 3}
   currHealthValue: 6
   heightOffset: 30
-  initWidthOffset: 20
-  widthDelta: 35
+  initWidthOffset: 40
+  widthDelta: 75
   flipSide: 1
   playerName: Red
 --- !u!82 &2101969385

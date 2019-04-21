@@ -92,7 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3372671045f27764e93d4028162fc1ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteIndex: 3
 --- !u!1 &8823716894714821630
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +184,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3372671045f27764e93d4028162fc1ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteIndex: 4
 --- !u!1 &8823716895684016752
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3372671045f27764e93d4028162fc1ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteIndex: 2
 --- !u!1 &8823716895968962371
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +395,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e40511b551f15844bcbe19a04cf675a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  index: 1
   BlockingLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -450,7 +446,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  projectileCount: 4
   proj1: {fileID: 21300026, guid: 1830f100fda30034c976fb21fe371219, type: 3}
   proj2: {fileID: 21300024, guid: 1830f100fda30034c976fb21fe371219, type: 3}
   proj3: {fileID: 21300022, guid: 1830f100fda30034c976fb21fe371219, type: 3}

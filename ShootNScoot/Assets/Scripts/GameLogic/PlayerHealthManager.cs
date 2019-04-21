@@ -35,7 +35,7 @@ namespace Assets.Scripts.GameLogic
             for (var i = 0; i < lives.Length / 2; i++)
             {
                 lives[i] = Instantiate(heartFull, Vector3.zero, Quaternion.identity);
-                lives[i].transform.parent = canvas.transform;
+                lives[i].transform.SetParent(canvas.transform, false);
                 lives[i].rectTransform.position = new Vector3(initWidthOffset + widthDelta * i * (flipSide ? -1 : 1), 
                     canvas.pixelRect.yMax - heightOffset, 0);
             }

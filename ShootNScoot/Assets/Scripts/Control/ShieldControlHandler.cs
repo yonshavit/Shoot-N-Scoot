@@ -9,7 +9,7 @@ using UnityEngine;
 namespace Assets.Scripts.Control
 {
     [RequireComponent(typeof(SpriteRenderer))]
-    [RequireComponent(typeof(DeflectingTile))]
+    [RequireComponent(typeof(Shield))]
     [RequireComponent(typeof(BoxCollider2D))]
     public class ShieldControlHandler : WeaponController
     {
