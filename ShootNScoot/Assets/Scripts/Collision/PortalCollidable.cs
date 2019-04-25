@@ -10,8 +10,11 @@ namespace Assets.Scripts.Collision
     [RequireComponent(typeof(BoxCollider2D))]
     public class PortalCollidable : Collidable
     {
-        [SerializeField] private PortalCollidable secondPortal;
+        [SerializeField] public PortalCollidable secondPortal;
         private BoxCollider2D myBoxCollider;
+        private Vector3 portalBottom;
+
+        public Vector3 portalOffset;
 
         void Awake()
         {
@@ -20,8 +23,8 @@ namespace Assets.Scripts.Collision
 
         public override bool HandleCollision(ProjectileHead p, Vector3 hitNormal)
         {
-            var diff = transform.position - p.transform.position;
-            Vector3 newPos = secondPortal.transform.position + diff;
+            //if you want different variations of portals (not both on the y axis) you'll need to change this!
+            Vector3 newPos = new Vector3(secondPortal.transform.position.x+secondPortal.portalOffset.x, p.transform.position.y, 0);
             p.HandlePortal(newPos);
             return false;
         }

@@ -181,6 +181,17 @@ namespace Assets.Scripts.Control
             return true;
         }
 
+        private void OnTriggerEnter2D(Collider2D collider)
+        {
+            var portal = collider.gameObject.GetComponent<PortalCollidable>();
+
+            if (portal != null)
+            {
+                var diff = portal.transform.position - transform.position + portal.secondPortal.portalOffset;
+                transform.position = portal.secondPortal.transform.position + diff;
+            }
+        }
+
         public void GetHit()
         {
             if (!IsIniFrame())
