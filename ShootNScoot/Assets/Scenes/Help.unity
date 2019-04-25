@@ -610,7 +610,7 @@ MonoBehaviour:
 
 
 
-    use the arrow keys to move and the mouse to controll the gun orientation. press
+    use the arrow keys to move and the mouse to control the gun orientation. press
     the left mouse button to shoot.'
 --- !u!222 &672408895
 CanvasRenderer:

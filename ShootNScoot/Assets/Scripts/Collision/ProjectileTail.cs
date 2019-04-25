@@ -3,19 +3,21 @@ using UnityEngine;
 
 namespace Assets.Scripts.Collision
 {
-    public enum ActionType { Deflected, Absorbed }
+    public enum ActionType { Deflected, Absorbed, Portaled }
 
     public struct HitData
     {
         public Vector3 hitOrigin;
         public Vector3 rightDir;
         public ActionType type;
+        public Vector3? newPosition;
 
-        public HitData(Vector3 hitOrigin, Vector3 rightDir, ActionType type)
+        public HitData(Vector3 hitOrigin, Vector3 rightDir, ActionType type, Vector3? newPos = null)
         {
             this.hitOrigin = hitOrigin;
             this.rightDir = rightDir;
             this.type = type;
+            this.newPosition = newPos;
         }
     }
 
@@ -54,10 +56,14 @@ namespace Assets.Scripts.Collision
             //gameObject.SetActive(false);
         }
 
+        private void HandlePortal(HitData newHit)
+        {
+            transform.position = newHit.newPosition.Value;
+        }
+
         private void HandleDeflection(HitData newHit)
         {
             spriteIndex++;
-            hitIndex++;
 
             if (spriteIndex == 5)
             {
@@ -98,7 +104,13 @@ namespace Assets.Scripts.Collision
                     case ActionType.Absorbed:
                         HandleAbsorption();
                         break;
+                    case ActionType.Portaled:
+                        HandlePortal(newHit.Value);
+                        break;
                 }
+
+                // Increase index after handling
+                hitIndex++;
             }
         }
 
