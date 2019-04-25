@@ -232,7 +232,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f0f9c11c7257f48feb7f87746b03e573, type: 3}
   iframesTimeSeconds: 3
   iframesBlinkRateSeconds: 0.3
-  playerMoveCollider: {fileID: 1767531004}
+  playerMoveCollider: {fileID: 2035381471285175494}
   movementBlockMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -602,8 +602,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b173db46b31cd840a3cb0b7ace6aec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parryDuration: 0.2
-  parryCooldown: 0.4
+  meleeDuration: 0.2
+  meleeCooldown: 0.4
+  meleeMoveOffsetDest: 0.5
   prefab: {fileID: 8823716896043670967, guid: fee7fb1f48c0ac4428a72de9fae0d2a5, type: 3}
   sfx:
   - {fileID: 8300000, guid: 406abe6e803b244eca380af5865dc5cb, type: 3}

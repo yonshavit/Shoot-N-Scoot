@@ -31,6 +31,7 @@ namespace Assets.Scripts.Control
         private SpriteRenderer weaponRenderer;
         private AudioSource audio;
         private PlayerHealthManager health;
+        private BoxCollider2D playerBodyCollider;
 
         void Start()
         {
@@ -38,6 +39,7 @@ namespace Assets.Scripts.Control
             weaponRenderer = GetComponentInChildren<WeaponController>().GetComponent<SpriteRenderer>();
             health = GetComponent<PlayerHealthManager>();
             audio = GetComponent<AudioSource>();
+            playerBodyCollider = GetComponent<BoxCollider2D>();
             ControllerEnabled = true;
 
             // Don't blink on game start
@@ -107,6 +109,13 @@ namespace Assets.Scripts.Control
                     LastMovedOrientation = Orientation.Right;
                     move.x += moveSpeed * Time.deltaTime;
                     playerSprite.flipX = false;
+                }
+
+                // Move collider according to flip
+                if ((playerSprite.flipX && playerBodyCollider.offset.x < 0) ||
+                    (!playerSprite.flipX && playerBodyCollider.offset.x > 0))
+                {
+                    playerBodyCollider.offset *= -1;
                 }
 
                 playerMoveCollider.enabled = false;

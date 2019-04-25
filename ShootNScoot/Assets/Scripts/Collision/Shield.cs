@@ -1,32 +1,67 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using Assets.Scripts.GameLogic;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.Collision
 {
     public class Shield : Collidable
     {
-        [SerializeField] private float parryDuration = 0.2f;
-        [SerializeField] private float parryCooldown = 0.4f;
+        [SerializeField] private float meleeDuration = 0.2f;
+        [SerializeField] private float meleeCooldown = 0.4f;
+        [SerializeField] private float meleeMoveOffsetDest = 0.5f;
         [SerializeField] private ProjectileManager prefab;
         [SerializeField] private AudioClip[] sfx;
 
         private AudioSource audio;
-        private float lastParryStart;
+        private float lastMeleeStart;
 
         void Start()
         {
             audio = GetComponent<AudioSource>();
-            lastParryStart = Time.time;
+            lastMeleeStart = Time.time;
         }
 
         void Update()
         {
             // If weapon enabled and player parries - animate and start parry duration
-            if (Time.time - lastParryStart >= parryCooldown && Input.GetKeyDown(KeyCode.Space))
+            if (Time.time - lastMeleeStart >= meleeCooldown && Input.GetKeyDown(KeyCode.Space))
             {
-                // TODO add animation
-                lastParryStart = Time.time;
+                StartCoroutine(meleeAnimation());
+                lastMeleeStart = Time.time;
             }
+        }
+
+        private IEnumerator<WaitForEndOfFrame> meleeAnimation()
+        {
+            var startMelee = Time.time;
+            var halfDuration = meleeDuration / 2;
+            var dest = transform.right * meleeMoveOffsetDest;
+            float diff;
+
+            // Move shield back and forth
+            while ((diff = Time.time - startMelee) < meleeDuration)
+            {
+                if (diff < halfDuration)
+                {
+                    // Push away
+                    transform.localPosition =
+                        Vector3.Lerp(Vector3.zero, dest, diff / halfDuration);
+                }
+                else
+                {
+                    // Retract shield
+                    transform.localPosition =
+                        Vector3.Lerp(dest, Vector3.zero, diff / meleeDuration);
+                }
+
+                yield return HelperFunctions.EndOfFrame;
+            }
+
+            // Return shield to original position
+            transform.localPosition = Vector3.zero;
+
+            yield return null;
         }
 
         public override bool HandleCollision(ProjectileHead p, Vector3 hitNormal)
@@ -37,7 +72,7 @@ namespace Assets.Scripts.Collision
                 audio.Play();
             }
 
-            if (Time.time - lastParryStart <= parryDuration)
+            if (Time.time - lastMeleeStart <= meleeDuration)
             {
                 // Parry! damage player as well
                 // TODO create and handle collision with player. Using isTriggered?
