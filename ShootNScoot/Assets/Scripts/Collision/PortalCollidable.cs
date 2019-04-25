@@ -11,15 +11,8 @@ namespace Assets.Scripts.Collision
     public class PortalCollidable : Collidable
     {
         [SerializeField] public PortalCollidable secondPortal;
-        private BoxCollider2D myBoxCollider;
-        private Vector3 portalBottom;
 
         public Vector3 portalOffset;
-
-        void Awake()
-        {
-            myBoxCollider = GetComponent<BoxCollider2D>();
-        }
 
         public override bool HandleCollision(ProjectileHead p, Vector3 hitNormal)
         {

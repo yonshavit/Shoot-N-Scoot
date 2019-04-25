@@ -259,12 +259,12 @@ PrefabInstance:
     - target: {fileID: 4023305924616024787, guid: 87d780cddde8ba94084d2d21840f1b8a,
         type: 3}
       propertyPath: portalOffset.x
-      value: -0.6
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4023305925183551274, guid: 87d780cddde8ba94084d2d21840f1b8a,
         type: 3}
       propertyPath: portalOffset.x
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87d780cddde8ba94084d2d21840f1b8a, type: 3}

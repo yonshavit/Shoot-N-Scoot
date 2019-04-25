@@ -187,8 +187,9 @@ namespace Assets.Scripts.Control
 
             if (portal != null)
             {
-                var diff = portal.transform.position - transform.position + portal.secondPortal.portalOffset;
-                transform.position = portal.secondPortal.transform.position + diff;
+                //if you want different variations of portals (not both on the y axis) you'll need to change this!
+                Vector3 newPos = new Vector3(portal.secondPortal.transform.position.x + portal.secondPortal.portalOffset.x, transform.position.y, 0);
+                transform.position = newPos;
             }
         }
 
