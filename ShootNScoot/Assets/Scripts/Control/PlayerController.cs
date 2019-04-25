@@ -171,22 +171,30 @@ namespace Assets.Scripts.Control
         {
             if (!IsIniFrame())
             {
+                // Handle being hit by a projectile
+                p.HandleImmediateAbsorption();
+                GetHit();
+                return false;
+            }
+
+            // Consider not being hit - let the projectile pass through
+            return true;
+        }
+
+        public void GetHit()
+        {
+            if (!IsIniFrame())
+            {
                 if (sfx.Length > 0)
                 {
                     audio.clip = sfx[Random.Range(0, sfx.Length)];
                     audio.Play();
                 }
 
-                // Handle being hit by a projectile
-                p.HandleImmediateAbsorption();
                 health.Score--;
                 lastiFramesStart = Time.time;
                 StartCoroutine(HandleiFrames(lastiFramesStart));
-                return false;
             }
-
-            // Consider not being hit - let the projectile pass through
-            return true;
         }
     }
 }

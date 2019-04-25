@@ -258,6 +258,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87d780cddde8ba94084d2d21840f1b8a, type: 3}
+--- !u!1 &786289126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8535376048985215296, guid: ca62b02db59e20146b9a00f83b8fd947,
+    type: 3}
+  m_PrefabInstance: {fileID: 8535376048465720541}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &786289133
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786289126}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &1110642215 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3935398373312065702, guid: 8fa4251c4084a414d9b33c0e400acb94,
@@ -285,7 +312,7 @@ PrefabInstance:
     - target: {fileID: 3935398373312065701, guid: 8fa4251c4084a414d9b33c0e400acb94,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3935398373312065702, guid: 8fa4251c4084a414d9b33c0e400acb94,
         type: 3}
@@ -433,7 +460,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1786351161745344520}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2036276897}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b3ea6f52a628a44ea55866a96ef772d, type: 3}
@@ -445,12 +472,39 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8535376048465720541}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 786289126}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b3ea6f52a628a44ea55866a96ef772d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2036276897 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1786351161321351667, guid: 9fd63deb609f65b419ebffd3b3b195b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1786351161745344520}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &2036276903
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036276897}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &921677866283569097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -657,6 +711,10 @@ PrefabInstance:
       propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1805874519}
+    - target: {fileID: 152997303, guid: 9fd63deb609f65b419ebffd3b3b195b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fd63deb609f65b419ebffd3b3b195b2, type: 3}
 --- !u!1001 &4630228800024112960
@@ -800,14 +858,5 @@ PrefabInstance:
       propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1805874519}
-    - target: {fileID: 8535376048985215299, guid: ca62b02db59e20146b9a00f83b8fd947,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1627989407, guid: ca62b02db59e20146b9a00f83b8fd947, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.03
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca62b02db59e20146b9a00f83b8fd947, type: 3}

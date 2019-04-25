@@ -13,13 +13,15 @@ namespace Assets.Scripts.Control
     [RequireComponent(typeof(BoxCollider2D))]
     public class ShieldControlHandler : WeaponController
     {
-        private SpriteRenderer shield;
+        private Shield shield;
+        private SpriteRenderer shieldRenderer;
         private PlayerController player;
         private BoxCollider2D shieldCollider2D;
 
         void Start()
         {
-            shield = GetComponent<SpriteRenderer>();
+            shield = GetComponent<Shield>();
+            shieldRenderer = GetComponent<SpriteRenderer>();
             shieldCollider2D = GetComponent<BoxCollider2D>();
             player = transform.parent.GetComponent<PlayerController>();
         }
@@ -30,12 +32,13 @@ namespace Assets.Scripts.Control
 
             // Flip to maintain weapon orientation
             var z = transform.rotation.eulerAngles.z;
-            shield.flipY = z > 90 && z < 270;
+            shieldRenderer.flipY = z > 90 && z < 270;
         }
 
         public override void WeaponEnable(bool enabled)
         {
             shieldCollider2D.enabled = enabled;
+            shield.enabled = enabled;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Assets.Scripts.Control;
 using Assets.Scripts.GameLogic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -24,15 +25,16 @@ namespace Assets.Scripts.Collision
 
         void Update()
         {
-            // If weapon enabled and player parries - animate and start parry duration
+            // If weapon enabled (this script's enabled flag is true - then this update will be called)
+            // and player melees - animate and start parry duration
             if (Time.time - lastMeleeStart >= meleeCooldown && Input.GetKeyDown(KeyCode.Space))
             {
-                StartCoroutine(meleeAnimation());
+                StartCoroutine(MeleeAnimation());
                 lastMeleeStart = Time.time;
             }
         }
 
-        private IEnumerator<WaitForEndOfFrame> meleeAnimation()
+        private IEnumerator<WaitForEndOfFrame> MeleeAnimation()
         {
             var startMelee = Time.time;
             var halfDuration = meleeDuration / 2;
@@ -64,6 +66,18 @@ namespace Assets.Scripts.Collision
             yield return null;
         }
 
+        void OnTriggerEnter2D(Collider2D collider)
+        {
+            PlayerController opponent;
+            
+            // If hit the opponent during melee
+            if (Time.time - lastMeleeStart < meleeDuration &&
+                (opponent = collider.gameObject.GetComponent<PlayerController>()) != null)
+            {
+                opponent.GetHit();
+            }
+        }
+
         public override bool HandleCollision(ProjectileHead p, Vector3 hitNormal)
         {
             if (sfx.Length > 0)
@@ -75,7 +89,7 @@ namespace Assets.Scripts.Collision
             if (Time.time - lastMeleeStart <= meleeDuration)
             {
                 // Parry! damage player as well
-                // TODO create and handle collision with player. Using isTriggered?
+                // TODO create and handle collider with player. Using isTriggered?
                 p.HandleParry(hitNormal, prefab);
             }
             else
