@@ -7,7 +7,7 @@ namespace Assets.Scripts.Collision
     [RequireComponent(typeof(SpriteRenderer))]
     public class ProjectileHead : MonoBehaviour
     {
-        [SerializeField] private LayerMask BlockingLayer;
+        [SerializeField] private LayerMask blockingLayer;
 
         private SpriteRenderer mySpriteRenderer;
         private int index;
@@ -32,6 +32,12 @@ namespace Assets.Scripts.Collision
             manager.AddHit(new HitData(transform.position, transform.right, ActionType.Absorbed));
             manager.DecreaseProjectileCounter();
             Destroy(gameObject);
+        }
+
+        public void HandlePortal(Vector3 exitPosition)
+        {
+            manager.AddHit(new HitData(transform.position, transform.right, ActionType.Portaled, exitPosition));
+            this.transform.position = exitPosition;
         }
 
         public void HandleDeflection(Vector3 hitNormal)
@@ -69,7 +75,7 @@ namespace Assets.Scripts.Collision
         {
             var start = transform.position;
             var end = start + manager.GetFrameMoveSpeed(transform.right);
-            var hit = Physics2D.Linecast(start, end, BlockingLayer);
+            var hit = Physics2D.Linecast(start, end, blockingLayer);
 
             // Move if did not hit anything or react if did
             if (hit.transform == null)
