@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: 7547122495920479817}
   - component: {fileID: 2101969385}
   - component: {fileID: 1082069177}
+  - component: {fileID: 786289133}
   m_Layer: 8
   m_Name: Shooter
   m_TagString: Player
@@ -439,9 +440,9 @@ MonoBehaviour:
   heartEmpty: {fileID: 5330098274904129968, guid: 2508d685c4f67364fa40c1bf36462e65,
     type: 3}
   currHealthValue: 6
-  heightOffset: 30
-  initWidthOffset: 40
-  widthDelta: 75
+  heightOffsetRatio: 0.05
+  initWidthOffsetRatio: 0.02
+  widthDeltaRatio: 0.04
   flipSide: 1
   playerName: Red
 --- !u!82 &2101969385
@@ -552,3 +553,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93351d36721228c438c67cb75438eb4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &786289133
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8535376048985215296}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

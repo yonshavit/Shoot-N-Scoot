@@ -89,7 +89,6 @@ namespace Assets.Scripts.Collision
             if (Time.time - lastMeleeStart <= meleeDuration)
             {
                 // Parry! damage player as well
-                // TODO create and handle collider with player. Using isTriggered?
                 p.HandleParry(hitNormal, prefab);
             }
             else

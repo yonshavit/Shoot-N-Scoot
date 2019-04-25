@@ -12,18 +12,26 @@ namespace Assets.Scripts.GameLogic
         [SerializeField] private Image heartHalf;
         [SerializeField] private Image heartEmpty;
         [SerializeField] private int currHealthValue = 6;
-        [SerializeField] private float heightOffset = 50;
-        [SerializeField] private float initWidthOffset = 30;
-        [SerializeField] private float widthDelta = 20;
+        [SerializeField] [Range(0, 1)] private float heightOffsetRatio = 0.05f;
+        [SerializeField] [Range(0, 1)] private float initWidthOffsetRatio = 0.02f;
+        [SerializeField] [Range(0, 1)] private float widthDeltaRatio = 0.01f;
         [SerializeField] private bool flipSide = false;
         [SerializeField] private string playerName;
+
         private Canvas canvas;
         private Image[] lives;
+        private float heightOffset;
+        private float initWidthOffset;
+        private float widthDelta;
 
 
         void Start()
         {
             canvas = GetComponentInChildren<Canvas>();
+
+            heightOffset = heightOffsetRatio * canvas.pixelRect.height;
+            initWidthOffset = initWidthOffsetRatio * canvas.pixelRect.width;
+            widthDelta = widthDeltaRatio * canvas.pixelRect.width;
 
             // Make sure health value starts as an even number!
             currHealthValue = currHealthValue + Mathf.CeilToInt((currHealthValue % 2) / 2.0f);
