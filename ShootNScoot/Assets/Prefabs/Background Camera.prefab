@@ -188,6 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5345236364402183270}
   - component: {fileID: 5345236364402183271}
+  - component: {fileID: 1238816721}
   m_Layer: 0
   m_Name: Background Camera
   m_TagString: Untagged
@@ -223,9 +224,10 @@ Camera:
   m_ClearFlags: 2
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -253,3 +255,15 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1238816721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5345236364402183269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd85e1db0b719dd44a8817b2fa6746d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

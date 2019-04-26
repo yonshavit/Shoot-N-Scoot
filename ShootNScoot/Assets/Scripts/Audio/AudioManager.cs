@@ -21,6 +21,17 @@ namespace Assets.Scripts.Audio
             if (Instance == null)
             {
                 Instance = this;
+
+                manager = GetComponent<AudioSource>();
+                sources.Shuffle();
+                index = 0;
+
+                if (sources.Length > 0)
+                {
+                    manager.clip = sources[index];
+                    manager.Play();
+                    lastSourceStartTime = Time.time;
+                }
             }
             else if (Instance != this)
             {
@@ -30,17 +41,6 @@ namespace Assets.Scripts.Audio
 
             // Sets this to not be destroyed when reloading scene
             DontDestroyOnLoad(gameObject);
-
-            manager = GetComponent<AudioSource>();
-            sources.Shuffle();
-            index = 0;
-
-            if (sources.Length > 0)
-            {
-                manager.clip = sources[index];
-                manager.Play();
-                lastSourceStartTime = Time.time;
-            }
         }
 
         // Update is called once per frame

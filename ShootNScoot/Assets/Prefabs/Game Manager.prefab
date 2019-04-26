@@ -54,6 +54,7 @@ MonoBehaviour:
   defender: {fileID: 0}
   turrets:
   - {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!212 &921677866283569099
 SpriteRenderer:
   m_ObjectHideFlags: 0

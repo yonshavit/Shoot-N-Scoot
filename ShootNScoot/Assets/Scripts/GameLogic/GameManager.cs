@@ -13,11 +13,11 @@ namespace Assets.Scripts.GameLogic
         [SerializeField] private PlayerController shooter;
         [SerializeField] private PlayerController defender;
         [SerializeField] private Turret[] turrets;
+        [SerializeField] private AudioManager audioManager;
         private SpriteRenderer screenBlocker;
         private Text gameOverText;
         private bool gameOver = false;
         private Resolution resolution;
-        private AudioManager audioManager;
 
         public void HandleGameOver(string playerName)
         {
@@ -52,7 +52,6 @@ namespace Assets.Scripts.GameLogic
             resolution = Screen.currentResolution;
             screenBlocker.transform.localScale = new Vector3(resolution.width, resolution.height, 1);
             screenBlocker.color = new Color(1,1,1,0);
-            audioManager = FindObjectOfType<AudioManager>();
         }
 
         private void Update()
@@ -60,7 +59,7 @@ namespace Assets.Scripts.GameLogic
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 // Stop playing da music!
-                Destroy(audioManager);
+                Destroy(audioManager.gameObject);
                 SceneManager.LoadScene(0);
             }
 
