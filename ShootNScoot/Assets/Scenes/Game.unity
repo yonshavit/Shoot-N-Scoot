@@ -744,11 +744,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Audio Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 7491195525487993621, guid: a209fa8307e845043a555510611a56b1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7491195525487993623, guid: a209fa8307e845043a555510611a56b1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -804,12 +799,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1499384704695088038, guid: a209fa8307e845043a555510611a56b1,
-        type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -6566861030352551011, guid: 54d7e6ca9b7ebdc48a58f5e755598cda,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a209fa8307e845043a555510611a56b1, type: 3}
 --- !u!114 &7491195524367772137 stripped
