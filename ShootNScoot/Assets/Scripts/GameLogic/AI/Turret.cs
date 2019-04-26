@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using Assets.Scripts.Collision;
 using Assets.Scripts.Control;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.GameLogic.AI
 {
+    [RequireComponent(typeof(AudioSource))]
     [RequireComponent(typeof(SpriteRenderer))]
     public class Turret : MonoBehaviour
     {
@@ -16,7 +18,9 @@ namespace Assets.Scripts.GameLogic.AI
         [SerializeField] private ProjectileManager projectileManager;
         [SerializeField] private float shotCooldownSeconds = 0.5f;
         [SerializeField] private float shotFireOffset = 1.5f;
+        [SerializeField] private AudioClip[] sfx;
 
+        private AudioSource audio;
         private Animator anim;
         private float lastShotTime;
         private bool aiEnabled;
@@ -28,6 +32,7 @@ namespace Assets.Scripts.GameLogic.AI
 
         void Start()
         {
+            audio = GetComponent<AudioSource>();
             anim = GetComponent<Animator>();
             lastShotTime = Time.time;
             aiEnabled = true;
@@ -57,6 +62,13 @@ namespace Assets.Scripts.GameLogic.AI
 
                     // Call shoot animation which will return to idle animation after a single animation cycle
                     anim.Play("Shoot");
+
+                    // Play shoot sound
+                    if (sfx.Length > 0)
+                    {
+                        audio.clip = sfx[Random.Range(0, sfx.Length)];
+                        audio.Play();
+                    }
                 }
             }
         }

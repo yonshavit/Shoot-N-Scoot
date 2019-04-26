@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Control;
+﻿using Assets.Scripts.Audio;
+using Assets.Scripts.Control;
 using Assets.Scripts.GameLogic.AI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,6 +17,7 @@ namespace Assets.Scripts.GameLogic
         private Text gameOverText;
         private bool gameOver = false;
         private Resolution resolution;
+        private AudioManager audioManager;
 
         public void HandleGameOver(string playerName)
         {
@@ -50,12 +52,15 @@ namespace Assets.Scripts.GameLogic
             resolution = Screen.currentResolution;
             screenBlocker.transform.localScale = new Vector3(resolution.width, resolution.height, 1);
             screenBlocker.color = new Color(1,1,1,0);
+            audioManager = FindObjectOfType<AudioManager>();
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                // Stop playing da music!
+                Destroy(audioManager);
                 SceneManager.LoadScene(0);
             }
 

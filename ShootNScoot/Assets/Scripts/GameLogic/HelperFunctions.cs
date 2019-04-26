@@ -7,13 +7,27 @@ using UnityEngine;
 
 namespace Assets.Scripts.GameLogic
 {
-    static class HelperFunctions
+    public static class HelperFunctions
     {
-        static public int RoundForSortingOrder(float number)
+        public readonly static WaitForEndOfFrame EndOfFrame = new WaitForEndOfFrame();
+
+        public static int RoundForSortingOrder(float number)
         {
-            return(int)((number * 10) + 0.5);
+            return (int)((number * 10) + 0.5);
         }
 
-        public static WaitForEndOfFrame EndOfFrame = new WaitForEndOfFrame();
+        #region Extension Methods
+        public static void Shuffle(this AudioClip[] sources)
+        {
+            // Knuth shuffle algorithm :: courtesy of Wikipedia :)
+            for (var t = 0; t < sources.Length; t++)
+            {
+                var tmp = sources[t];
+                int r = UnityEngine.Random.Range(t, sources.Length);
+                sources[t] = sources[r];
+                sources[r] = tmp;
+            }
+        }
+        #endregion
     }
 }

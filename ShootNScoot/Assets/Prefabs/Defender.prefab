@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 6506692385354406988}
   - component: {fileID: 105103272}
   - component: {fileID: 2036276903}
+  - component: {fileID: 6448885651538024051}
   m_Layer: 8
   m_Name: Defender
   m_TagString: Player
@@ -170,8 +171,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1170765281
-  m_SortingLayer: 2
+  m_SortingLayerID: -632008113
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300090, guid: fbc90106c0ce7714f9529f57cba084dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -285,7 +286,8 @@ AudioSource:
   m_GameObject: {fileID: 1786351161321351667}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6050034580141473438, guid: 54d7e6ca9b7ebdc48a58f5e755598cda,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -393,6 +395,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6448885651538024051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786351161321351667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93351d36721228c438c67cb75438eb4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1786351162366285898
 GameObject:
   m_ObjectHideFlags: 0
@@ -407,6 +421,7 @@ GameObject:
   - component: {fileID: 1786351161745344522}
   - component: {fileID: 776844258}
   - component: {fileID: 809275213532926148}
+  - component: {fileID: 107662892}
   m_Layer: 8
   m_Name: Shield
   m_TagString: Untagged
@@ -523,7 +538,8 @@ AudioSource:
   m_GameObject: {fileID: 1786351162366285898}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 6050034580141473438, guid: 54d7e6ca9b7ebdc48a58f5e755598cda,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -628,3 +644,16 @@ MonoBehaviour:
   prefab: {fileID: 8823716896043670967, guid: fee7fb1f48c0ac4428a72de9fae0d2a5, type: 3}
   sfx:
   - {fileID: 8300000, guid: 406abe6e803b244eca380af5865dc5cb, type: 3}
+  - {fileID: 8300000, guid: 476c9e909434541d9a0e665e934cd626, type: 3}
+--- !u!114 &107662892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786351162366285898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93351d36721228c438c67cb75438eb4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

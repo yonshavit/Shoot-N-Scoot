@@ -3,6 +3,7 @@ using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.Collision
 {
+    [RequireComponent(typeof(AudioSource))]
     public class AbsorbingTile : Collidable
     {
         [SerializeField] private AudioClip[] sfx;

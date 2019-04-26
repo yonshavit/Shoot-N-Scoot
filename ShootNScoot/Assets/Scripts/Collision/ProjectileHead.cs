@@ -57,7 +57,7 @@ namespace Assets.Scripts.Collision
             manager.AddHit(new HitData(transform.position, transform.right, ActionType.Deflected));
         }
 
-        public void HandleParry(Vector3 hitNormal, ProjectileManager prefab)
+        public void HandleMelee(Vector3 hitNormal, ProjectileManager prefab)
         {
             // Create a new projectile and destroy this one
             transform.right = Vector3.Reflect(transform.right, hitNormal);

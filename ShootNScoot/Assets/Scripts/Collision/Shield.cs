@@ -71,7 +71,7 @@ namespace Assets.Scripts.Collision
             yield return null;
         }
 
-        void OnTriggerEnter2D(Collider2D collider)
+        void OnTriggerStay2D(Collider2D collider)
         {
             PlayerController opponent;
             
@@ -94,7 +94,7 @@ namespace Assets.Scripts.Collision
             if (Time.time - lastMeleeStart <= meleeDuration)
             {
                 // Parry! damage player as well
-                p.HandleParry(hitNormal, prefab);
+                p.HandleMelee(hitNormal, prefab);
             }
             else
             {

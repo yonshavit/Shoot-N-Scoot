@@ -5,12 +5,15 @@ using UnityEngine;
 namespace Assets.Scripts.Control
 {
     [RequireComponent(typeof(SpriteRenderer))]
+    [RequireComponent(typeof(AudioSource))]
     public class GunControlHandler : WeaponController
     {
         [SerializeField] private float shotCooldownSeconds = 0.4f;
         [SerializeField] private float shotFireOffset = 1.5f;
         [SerializeField] private ProjectileManager projectileManager;
+        [SerializeField] private AudioClip[] sfx;
 
+        private AudioSource audio;
         private float lastShotTime;
         private SpriteRenderer gun;
         private PlayerController player;
@@ -20,6 +23,7 @@ namespace Assets.Scripts.Control
         {
             gun = GetComponent<SpriteRenderer>();
             player = GetComponentInParent<PlayerController>();
+            audio = GetComponent<AudioSource>();
             lastShotTime = Time.time;
         }
 
@@ -58,6 +62,13 @@ namespace Assets.Scripts.Control
                             Quaternion.AngleAxis(targetAngle, Vector3.forward));
 
                         newProjectile.InitProjectiles();
+
+                        // Play shoot sound
+                        if (sfx.Length > 0)
+                        {
+                            audio.clip = sfx[Random.Range(0, sfx.Length)];
+                            audio.Play();
+                        }
                     }
                 }
 
