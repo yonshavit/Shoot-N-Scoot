@@ -256,31 +256,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4023305924616024787, guid: 87d780cddde8ba94084d2d21840f1b8a,
-        type: 3}
-      propertyPath: portalOffset.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4023305925183551274, guid: 87d780cddde8ba94084d2d21840f1b8a,
-        type: 3}
-      propertyPath: portalOffset.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8648570798934836711, guid: 87d780cddde8ba94084d2d21840f1b8a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 8648570798934836711, guid: 87d780cddde8ba94084d2d21840f1b8a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.22
-      objectReference: {fileID: 0}
-    - target: {fileID: 8648570799450449808, guid: 87d780cddde8ba94084d2d21840f1b8a,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.94
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87d780cddde8ba94084d2d21840f1b8a, type: 3}
 --- !u!114 &1110642215 stripped
@@ -306,6 +281,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 3935398373312065701, guid: 8fa4251c4084a414d9b33c0e400acb94,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3935398373312065702, guid: 8fa4251c4084a414d9b33c0e400acb94,
         type: 3}
@@ -677,6 +657,10 @@ PrefabInstance:
       propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1805874519}
+    - target: {fileID: 152997303, guid: 9fd63deb609f65b419ebffd3b3b195b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fd63deb609f65b419ebffd3b3b195b2, type: 3}
 --- !u!1001 &4630228800024112960

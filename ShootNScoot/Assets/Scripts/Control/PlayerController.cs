@@ -21,7 +21,8 @@ namespace Assets.Scripts.Control
         [SerializeField] private AudioClip[] sfx;
         [SerializeField] private float iframesTimeSeconds = 3f;
         [SerializeField] private float iframesBlinkRateSeconds = 0.3f;
-        [SerializeField] private BoxCollider2D playerMoveCollider;
+        //[SerializeField] private BoxCollider2D playerMoveCollider;
+        [SerializeField] private Vector3 playerMovementBlockOffset;
         [SerializeField] private LayerMask movementBlockMask;
         [SerializeField] private Color iframeColor = new Color(1,1,1, 0.5f);
 
@@ -118,10 +119,10 @@ namespace Assets.Scripts.Control
                     playerBodyCollider.offset *= -1;
                 }
 
-                playerMoveCollider.enabled = false;
-                var hit = Physics2D.Linecast(transform.position, transform.position + move,
+                //playerMoveCollider.enabled = false;
+                var hit = Physics2D.Linecast(transform.position + playerMovementBlockOffset, transform.position + playerMovementBlockOffset + move,
                     movementBlockMask);
-                playerMoveCollider.enabled = true;
+                //playerMoveCollider.enabled = true;
 
                 // Move only if allowed
                 if (hit.transform == null)

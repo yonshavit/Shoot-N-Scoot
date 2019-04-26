@@ -233,7 +233,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f0f9c11c7257f48feb7f87746b03e573, type: 3}
   iframesTimeSeconds: 1.8
   iframesBlinkRateSeconds: 0.3
-  playerMoveCollider: {fileID: 2035381471285175494}
+  playerMovementBlockOffset: {x: 0, y: -0.16}
   movementBlockMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -645,7 +645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &950001601365833185
 Transform:
   m_ObjectHideFlags: 0

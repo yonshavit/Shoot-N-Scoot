@@ -3928,7 +3928,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 6, y: -11}
+  m_Offset: {x: 6, y: -11.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3980,7 +3980,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 19.5, y: -6.5}
+  m_Offset: {x: 19.5, y: -7}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4110,7 +4110,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -4.25, y: -9.5}
+  m_Offset: {x: -4.25, y: -10}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4136,7 +4136,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -5.25, y: -9}
+  m_Offset: {x: -5.25, y: -9.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4162,7 +4162,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 18.25, y: -7}
+  m_Offset: {x: 18.25, y: -7.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4188,7 +4188,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -6.25, y: -7}
+  m_Offset: {x: -6.25, y: -7.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4214,7 +4214,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 17.25, y: -8.5}
+  m_Offset: {x: 17.25, y: -9}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4240,7 +4240,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 16.25, y: -10}
+  m_Offset: {x: 16.25, y: -10.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4344,7 +4344,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -7.25, y: -6.5}
+  m_Offset: {x: -7.25, y: -7}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4959,6 +4959,11 @@ PrefabInstance:
       propertyPath: secondPortal
       value: 
       objectReference: {fileID: 4023305925183551274}
+    - target: {fileID: 4023305926006125362, guid: 5f6e6d0d8e69040498690cf72d88c681,
+        type: 3}
+      propertyPath: portalOffset.x
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f6e6d0d8e69040498690cf72d88c681, type: 3}
 --- !u!114 &4023305924616024787 stripped
@@ -5051,6 +5056,11 @@ PrefabInstance:
       propertyPath: secondPortal
       value: 
       objectReference: {fileID: 4023305924616024787}
+    - target: {fileID: 4023305926006125362, guid: 5f6e6d0d8e69040498690cf72d88c681,
+        type: 3}
+      propertyPath: portalOffset.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f6e6d0d8e69040498690cf72d88c681, type: 3}
 --- !u!114 &4023305925183551274 stripped
@@ -5228,6 +5238,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2076045069334212245}
     m_Modifications:
+    - target: {fileID: 4633494099880557, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
+      propertyPath: m_Name
+      value: YellowBox (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 1557919285124365187, guid: 83acda8e72c5f914984ff6cd9af1bfc5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5282,10 +5296,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4633494099880557, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
-      propertyPath: m_Name
-      value: YellowBox (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
@@ -5377,6 +5387,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2076045069334212245}
     m_Modifications:
+    - target: {fileID: 4633494099880557, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
+      propertyPath: m_Name
+      value: YellowBox (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 1557919285124365187, guid: 83acda8e72c5f914984ff6cd9af1bfc5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5432,10 +5446,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4633494099880557, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
-      propertyPath: m_Name
-      value: YellowBox (2)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
 --- !u!4 &671388911323971360 stripped
@@ -5451,6 +5461,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2076045069334212245}
     m_Modifications:
+    - target: {fileID: 4633494099880557, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
+      propertyPath: m_Name
+      value: YellowBox (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 1557919285124365187, guid: 83acda8e72c5f914984ff6cd9af1bfc5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5506,10 +5520,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4633494099880557, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
-      propertyPath: m_Name
-      value: YellowBox (3)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
 --- !u!4 &671388910052511527 stripped
@@ -5525,6 +5535,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2076045069334212245}
     m_Modifications:
+    - target: {fileID: 4633494099880557, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
+      propertyPath: m_Name
+      value: YellowBox
+      objectReference: {fileID: 0}
     - target: {fileID: 1557919285124365187, guid: 83acda8e72c5f914984ff6cd9af1bfc5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5580,10 +5594,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4633494099880557, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
-      propertyPath: m_Name
-      value: YellowBox
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83acda8e72c5f914984ff6cd9af1bfc5, type: 3}
 --- !u!4 &3801193491724140714 stripped
@@ -5599,6 +5609,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2076045069334212245}
     m_Modifications:
+    - target: {fileID: 7253917704792025481, guid: 7f1f4f6fc09795d4782cbfb5d1bde347,
+        type: 3}
+      propertyPath: m_Name
+      value: LongTable
+      objectReference: {fileID: 0}
     - target: {fileID: 3358191858741989368, guid: 7f1f4f6fc09795d4782cbfb5d1bde347,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5653,11 +5668,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7253917704792025481, guid: 7f1f4f6fc09795d4782cbfb5d1bde347,
-        type: 3}
-      propertyPath: m_Name
-      value: LongTable
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f1f4f6fc09795d4782cbfb5d1bde347, type: 3}
@@ -5749,6 +5759,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2076045069334212245}
     m_Modifications:
+    - target: {fileID: 6763057106772352518, guid: 46677ed908a3d8d41ade0d91c8674c09,
+        type: 3}
+      propertyPath: m_Name
+      value: Sparkly
+      objectReference: {fileID: 0}
     - target: {fileID: 5863784927383461832, guid: 46677ed908a3d8d41ade0d91c8674c09,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5803,11 +5818,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6763057106772352518, guid: 46677ed908a3d8d41ade0d91c8674c09,
-        type: 3}
-      propertyPath: m_Name
-      value: Sparkly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46677ed908a3d8d41ade0d91c8674c09, type: 3}
@@ -5883,6 +5893,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 53079882, guid: d6086ad73444aa6429c91730154b541f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 53079882, guid: d6086ad73444aa6429c91730154b541f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 578112829, guid: d6086ad73444aa6429c91730154b541f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.94
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6086ad73444aa6429c91730154b541f, type: 3}
