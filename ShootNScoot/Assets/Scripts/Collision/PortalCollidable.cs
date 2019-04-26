@@ -16,7 +16,7 @@ namespace Assets.Scripts.Collision
 
         public override bool HandleCollision(ProjectileHead p, Vector3 hitNormal)
         {
-            //if you want different variations of portals (not both on the y axis) you'll need to change this!
+            // If you want different variations of portals (not both on the y axis) you'll need to change this!
             Vector3 newPos = new Vector3(secondPortal.transform.position.x+secondPortal.portalOffset.x, p.transform.position.y, 0);
             p.HandlePortal(newPos);
             return false;

@@ -115,5 +115,5 @@ MonoBehaviour:
   shooter: {fileID: 0}
   projectileManager: {fileID: 8823716896043670967, guid: fee7fb1f48c0ac4428a72de9fae0d2a5,
     type: 3}
-  shotCooldownSeconds: 1.2
+  shotCooldownSeconds: 1.5
   shotFireOffset: 1

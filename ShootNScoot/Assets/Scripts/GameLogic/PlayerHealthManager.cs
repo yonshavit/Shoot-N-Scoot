@@ -16,7 +16,6 @@ namespace Assets.Scripts.GameLogic
         [SerializeField] [Range(0, 1)] private float initWidthOffsetRatio = 0.02f;
         [SerializeField] [Range(0, 1)] private float widthDeltaRatio = 0.01f;
         [SerializeField] private bool flipSide = false;
-        [SerializeField] private string playerName;
 
         private Canvas canvas;
         private Image[] lives;
@@ -89,7 +88,7 @@ namespace Assets.Scripts.GameLogic
 
                 if (currHealthValue == 0)
                 {
-                    onHealthEmptyHandler.Invoke(playerName);
+                    onHealthEmptyHandler.Invoke(name);
                 }
             }
         }

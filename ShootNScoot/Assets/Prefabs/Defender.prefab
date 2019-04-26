@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 105103272}
   - component: {fileID: 2036276903}
   m_Layer: 8
-  m_Name: Deflector
+  m_Name: Defender
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
   sfx:
   - {fileID: 8300000, guid: 56c2ee139e8c844ba9a3a17370e3b763, type: 3}
   - {fileID: 8300000, guid: f0f9c11c7257f48feb7f87746b03e573, type: 3}
-  iframesTimeSeconds: 3
+  iframesTimeSeconds: 1.8
   iframesBlinkRateSeconds: 0.3
   playerMoveCollider: {fileID: 2035381471285175494}
   movementBlockMask:
@@ -277,7 +277,6 @@ MonoBehaviour:
   initWidthOffsetRatio: 0.02
   widthDeltaRatio: 0.04
   flipSide: 0
-  playerName: Blue
 --- !u!82 &105103272
 AudioSource:
   m_ObjectHideFlags: 0

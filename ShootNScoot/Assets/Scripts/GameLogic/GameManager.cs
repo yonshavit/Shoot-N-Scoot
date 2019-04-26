@@ -9,7 +9,8 @@ namespace Assets.Scripts.GameLogic
     [RequireComponent(typeof(SpriteRenderer))]
     public class GameManager : MonoBehaviour
     {
-        [SerializeField] private PlayerController[] players;
+        [SerializeField] private PlayerController shooter;
+        [SerializeField] private PlayerController defender;
         [SerializeField] private Turret[] turrets;
         private SpriteRenderer screenBlocker;
         private Text gameOverText;
@@ -18,20 +19,23 @@ namespace Assets.Scripts.GameLogic
 
         public void HandleGameOver(string playerName)
         {
-            DarkenScreen();
-
-            foreach (var player in players)
+            // Handle once per match
+            if (!gameOver)
             {
-                player.ControllerEnabled = false;
-            }
+                gameOver = true;
 
-            foreach (var turret in turrets)
-            {
-                turret.SetControl(false);
-            }
+                DarkenScreen();
 
-            // TODO replace with something generic you lazy fuck
-            gameOverText.text = (playerName == "Red" ? "Blue" : "Red") + " player won!\nPress space to replay";
+                shooter.ControllerEnabled = false;
+                defender.ControllerEnabled = false;
+
+                foreach (var turret in turrets)
+                {
+                    turret.SetControl(false);
+                }
+
+                gameOverText.text = (playerName == shooter.name ? defender.name : shooter.name) + " won!\nPress 'F' to replay";
+            }
         }
 
         private void DarkenScreen()
@@ -55,7 +59,7 @@ namespace Assets.Scripts.GameLogic
                 SceneManager.LoadScene(0);
             }
 
-            if (gameOver && Input.GetKeyDown(KeyCode.Space))
+            if (gameOver && Input.GetKeyDown(KeyCode.F))
             {
                 SceneManager.LoadScene(1);
             }

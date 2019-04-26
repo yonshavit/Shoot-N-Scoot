@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe39045f958bd042a9fb9a779bd9c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotCooldownSeconds: 0.4
+  shotCooldownSeconds: 0.1
   shotFireOffset: 2
   projectileManager: {fileID: 8823716896043670967, guid: fee7fb1f48c0ac4428a72de9fae0d2a5,
     type: 3}
@@ -398,7 +398,7 @@ MonoBehaviour:
   sfx:
   - {fileID: 8300000, guid: 654d1ed270c714ddb8c934ac5fef5edc, type: 3}
   - {fileID: 8300000, guid: efc8a171e707c43fcb789f5980dafb79, type: 3}
-  iframesTimeSeconds: 3
+  iframesTimeSeconds: 1.8
   iframesBlinkRateSeconds: 0.3
   playerMoveCollider: {fileID: 1075822427}
   movementBlockMask:
@@ -444,7 +444,6 @@ MonoBehaviour:
   initWidthOffsetRatio: 0.02
   widthDeltaRatio: 0.04
   flipSide: 1
-  playerName: Red
 --- !u!82 &2101969385
 AudioSource:
   m_ObjectHideFlags: 0

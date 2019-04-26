@@ -136,12 +136,13 @@ namespace Assets.Scripts.Control
         private IEnumerator<WaitForSeconds> HandleiFrames(float startTime)
         {
             var weapon = weaponRenderer.GetComponent<WeaponController>();
+            var currColor = playerSprite.material.color;
 
             weapon.WeaponEnable(false);
 
             while (Time.time - startTime < iframesTimeSeconds)
             {
-                var currColor = playerSprite.material.color;
+                currColor = playerSprite.material.color;
 
                 // Flip between showing and hiding the player during iframes
                 playerSprite.material.color = (Color.white == currColor) ? iframeColor : Color.white;
@@ -153,11 +154,8 @@ namespace Assets.Scripts.Control
             weapon.WeaponEnable(true);
 
             // Make sure the player is shown by the end
-            if (!playerSprite.enabled)
-            {
-                playerSprite.enabled = true;
-                weaponRenderer.enabled = true;
-            }
+            playerSprite.material.color = Color.white;
+            weaponRenderer.material.color = Color.white;
 
             yield return null;
         }
@@ -187,7 +185,7 @@ namespace Assets.Scripts.Control
 
             if (portal != null)
             {
-                //if you want different variations of portals (not both on the y axis) you'll need to change this!
+                // If you want different variations of portals (not both on the y axis) you'll need to change this!
                 Vector3 newPos = new Vector3(portal.secondPortal.transform.position.x + portal.secondPortal.portalOffset.x, transform.position.y, 0);
                 transform.position = newPos;
             }

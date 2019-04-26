@@ -50,9 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97cb1a750f61814fa75c98c5ea5e1eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
-  - {fileID: 0}
-  - {fileID: 0}
+  shooter: {fileID: 0}
+  defender: {fileID: 0}
   turrets:
   - {fileID: 0}
 --- !u!212 &921677866283569099

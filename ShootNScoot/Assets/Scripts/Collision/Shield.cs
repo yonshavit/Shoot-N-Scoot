@@ -15,22 +15,27 @@ namespace Assets.Scripts.Collision
         [SerializeField] private AudioClip[] sfx;
 
         private AudioSource audio;
+        private PlayerController player;
         private float lastMeleeStart;
 
         void Start()
         {
             audio = GetComponent<AudioSource>();
             lastMeleeStart = Time.time;
+            player = GetComponentInParent<PlayerController>();
         }
 
         void Update()
         {
-            // If weapon enabled (this script's enabled flag is true - then this update will be called)
-            // and player melees - animate and start parry duration
-            if (Time.time - lastMeleeStart >= meleeCooldown && Input.GetKeyDown(KeyCode.Space))
+            if (player.ControllerEnabled)
             {
-                StartCoroutine(MeleeAnimation());
-                lastMeleeStart = Time.time;
+                // If weapon enabled (this script's enabled flag is true - then this update will be called)
+                // and player melees - animate and start parry duration
+                if (Time.time - lastMeleeStart >= meleeCooldown && Input.GetKeyDown(KeyCode.Space))
+                {
+                    StartCoroutine(MeleeAnimation());
+                    lastMeleeStart = Time.time;
+                }
             }
         }
 
