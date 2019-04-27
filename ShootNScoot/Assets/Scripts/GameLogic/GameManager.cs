@@ -13,7 +13,6 @@ namespace Assets.Scripts.GameLogic
         [SerializeField] private PlayerController shooter;
         [SerializeField] private PlayerController defender;
         [SerializeField] private Turret[] turrets;
-        [SerializeField] private AudioManager audioManager;
         [SerializeField] private Texture2D gameCursor;
         private SpriteRenderer screenBlocker;
         private Text gameOverText;
@@ -63,7 +62,7 @@ namespace Assets.Scripts.GameLogic
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 // Stop playing da music!
-                Destroy(audioManager.gameObject);
+                Destroy(AudioManager.Instance.gameObject);
 
                 // Restore cursor
                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
