@@ -639,7 +639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeDuration: 0.2
-  meleeCooldown: 0.4
+  meleeCooldown: 0.3
   meleeMoveOffsetDest: 0.5
   prefab: {fileID: 8823716896043670967, guid: fee7fb1f48c0ac4428a72de9fae0d2a5, type: 3}
   sfx:

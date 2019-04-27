@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotCooldownSeconds: 0.1
-  shotFireOffset: 2
+  shotFireOffset: 1.8
   projectileManager: {fileID: 8823716896043670967, guid: fee7fb1f48c0ac4428a72de9fae0d2a5,
     type: 3}
   sfx:
@@ -438,7 +438,7 @@ MonoBehaviour:
   Down: 274
   Left: 276
   Right: 275
-  moveSpeed: 5.5
+  moveSpeed: 5.13
   sfx:
   - {fileID: 8300000, guid: 654d1ed270c714ddb8c934ac5fef5edc, type: 3}
   - {fileID: 8300000, guid: efc8a171e707c43fcb789f5980dafb79, type: 3}
