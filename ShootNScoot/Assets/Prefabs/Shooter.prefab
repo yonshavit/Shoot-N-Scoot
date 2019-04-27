@@ -199,6 +199,7 @@ MonoBehaviour:
   sfx:
   - {fileID: 8300000, guid: e45b81ba96856cc479f63d961d803f8d, type: 3}
   - {fileID: 8300000, guid: 37eabe7d75f86404f8c3ae30949edd27, type: 3}
+  cursorImageOffset: {x: 16, y: -16, z: 0}
 --- !u!114 &1864889542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,7 +438,7 @@ MonoBehaviour:
   Down: 274
   Left: 276
   Right: 275
-  moveSpeed: 5
+  moveSpeed: 5.5
   sfx:
   - {fileID: 8300000, guid: 654d1ed270c714ddb8c934ac5fef5edc, type: 3}
   - {fileID: 8300000, guid: efc8a171e707c43fcb789f5980dafb79, type: 3}

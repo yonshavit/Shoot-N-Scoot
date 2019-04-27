@@ -48,8 +48,11 @@ namespace Assets.Scripts.Audio
         {
             if (Time.time - lastSourceStartTime >= manager.clip.length)
             {
+                // Next song. Update last start time
+                lastSourceStartTime = Time.time;
                 index = (index + 1) % sources.Length;
                 manager.clip = sources[index];
+                manager.Play();
             }
         }
     }

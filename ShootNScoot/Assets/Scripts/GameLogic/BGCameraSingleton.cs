@@ -7,9 +7,9 @@ using UnityEngine;
 
 namespace Assets.Scripts.GameLogic
 {
-    public class UnitySingleton : MonoBehaviour
+    public class BGCameraSingleton : MonoBehaviour
     {
-        public static UnitySingleton Instance;
+        public static BGCameraSingleton Instance;
 
         private void Awake()
         {

@@ -12,6 +12,7 @@ namespace Assets.Scripts.Control
         [SerializeField] private float shotFireOffset = 1.5f;
         [SerializeField] private ProjectileManager projectileManager;
         [SerializeField] private AudioClip[] sfx;
+        [SerializeField] private Vector3 cursorImageOffset;
 
         private AudioSource audio;
         private float lastShotTime;
@@ -33,7 +34,7 @@ namespace Assets.Scripts.Control
             {
                 #region HandleRotation
 
-                var origin = Camera.main.WorldToScreenPoint(transform.parent.position);
+                var origin = Camera.main.WorldToScreenPoint(transform.parent.position) - cursorImageOffset;
                 var cursor = Input.mousePosition;
 
                 var targetDirection = (cursor - origin).normalized;
