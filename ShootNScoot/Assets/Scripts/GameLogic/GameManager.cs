@@ -14,6 +14,7 @@ namespace Assets.Scripts.GameLogic
         [SerializeField] private PlayerController defender;
         [SerializeField] private Turret[] turrets;
         [SerializeField] private AudioManager audioManager;
+        [SerializeField] private Texture2D gameCursor;
         private SpriteRenderer screenBlocker;
         private Text gameOverText;
         private bool gameOver = false;
@@ -52,6 +53,9 @@ namespace Assets.Scripts.GameLogic
             resolution = Screen.currentResolution;
             screenBlocker.transform.localScale = new Vector3(resolution.width, resolution.height, 1);
             screenBlocker.color = new Color(1,1,1,0);
+
+            // Change cursor for this scene
+            Cursor.SetCursor(gameCursor, Vector2.zero, CursorMode.Auto);
         }
 
         private void Update()
@@ -60,6 +64,9 @@ namespace Assets.Scripts.GameLogic
             {
                 // Stop playing da music!
                 Destroy(audioManager.gameObject);
+
+                // Restore cursor
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                 SceneManager.LoadScene(0);
             }
 

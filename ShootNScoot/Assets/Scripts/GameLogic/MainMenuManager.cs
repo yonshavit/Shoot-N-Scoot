@@ -10,9 +10,10 @@ namespace Assets.Scripts.GameLogic
 {
     public class MainMenuManager : MonoBehaviour
     {
+
         public void LoadByIndex(int sceneIndex)
         {
-            SceneManager.LoadScene(sceneIndex);
+             SceneManager.LoadScene(sceneIndex);
         }
 
         public void Quit()
