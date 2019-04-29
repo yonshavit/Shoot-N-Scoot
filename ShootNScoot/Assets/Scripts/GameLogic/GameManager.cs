@@ -54,7 +54,7 @@ namespace Assets.Scripts.GameLogic
             screenBlocker.color = new Color(1,1,1,0);
 
             // Change cursor for this scene
-            Cursor.SetCursor(gameCursor, new Vector2(gameCursor.width / 2.0f, gameCursor.height / 2.0f), CursorMode.ForceSoftware);
+            Cursor.SetCursor(gameCursor, new Vector2(gameCursor.width / 2.0f, gameCursor.height / 2.0f), CursorMode.Auto);
 
             // Stop playing menu music!
             var menuMusic = FindObjectOfType<MenuMusicSingleton>();
