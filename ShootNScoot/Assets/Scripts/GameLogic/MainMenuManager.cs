@@ -20,5 +20,14 @@ namespace Assets.Scripts.GameLogic
         {
             Application.Quit();
         }
+
+        void Update()
+        {
+            // Quit game on escape
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Quit();
+            }
+        }
     }
 }

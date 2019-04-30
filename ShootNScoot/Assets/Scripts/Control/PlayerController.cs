@@ -25,6 +25,7 @@ namespace Assets.Scripts.Control
         [SerializeField] private LayerMask movementBlockMask;
         [SerializeField] private Color iframeColor = new Color(1,1,1, 0.5f);
 
+        public Color playerColor;
         public bool ControllerEnabled { get; set; }
         private float lastiFramesStart;
         private SpriteRenderer playerSprite;

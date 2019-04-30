@@ -19,7 +19,7 @@ namespace Assets.Scripts.GameLogic
         private bool gameOver = false;
         private Resolution resolution;
 
-        public void HandleGameOver(string playerName)
+        public void HandleGameOver(string loserName)
         {
             // Handle once per match
             if (!gameOver)
@@ -36,7 +36,13 @@ namespace Assets.Scripts.GameLogic
                     turret.SetControl(false);
                 }
 
-                gameOverText.text = (playerName == shooter.name ? defender.name : shooter.name) + " won!\nPress 'F' to replay";
+                gameOverText.text = (loserName == shooter.name ? defender.name : shooter.name) + " won!\nPress 'F' to replay";
+
+                // Set winner's color to text
+                gameOverText.color = (loserName == shooter.name ? defender.playerColor : shooter.playerColor);
+
+                // Update win count
+                PlayerScoreManager.Instance.UpdateScore(loserName == defender.name);
             }
         }
 
@@ -57,12 +63,13 @@ namespace Assets.Scripts.GameLogic
             Cursor.SetCursor(gameCursor, new Vector2(gameCursor.width / 2.0f, gameCursor.height / 2.0f), CursorMode.Auto);
 
             // Stop playing menu music!
-            var menuMusic = FindObjectOfType<MenuMusicSingleton>();
-
-            if (menuMusic != null)
+            if (MenuMusicSingleton.Instance != null)
             {
-                Destroy(menuMusic.gameObject);
+                Destroy(MenuMusicSingleton.Instance.gameObject);
             }
+
+            // Inform score manager that match has started
+            PlayerScoreManager.Instance.MatchStart();
         }
 
         private void Update()
@@ -71,6 +78,9 @@ namespace Assets.Scripts.GameLogic
             {
                 // Stop playing da music!
                 Destroy(AudioManager.Instance.gameObject);
+
+                // Stop Counting score!
+                Destroy(PlayerScoreManager.Instance.gameObject);
 
                 // Restore cursor
                 Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
