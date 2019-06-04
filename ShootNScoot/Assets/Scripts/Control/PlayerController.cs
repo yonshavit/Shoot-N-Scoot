@@ -5,7 +5,8 @@ using UnityEngine;
 
 namespace Assets.Scripts.Control
 {
-    public enum Orientation { Right, UpRight, Up, UpLeft, Left, DownLeft, Down, DownRight }
+    //public enum Orientation { Right, UpRight, Up, UpLeft, Left, DownLeft, Down, DownRight }
+    public enum Orientation { Right, Up, Left, Down }
 
     [RequireComponent(typeof(SpriteRenderer))]
     [RequireComponent(typeof(PlayerHealthManager))]
@@ -33,9 +34,11 @@ namespace Assets.Scripts.Control
         private AudioSource audio;
         private PlayerHealthManager health;
         private BoxCollider2D playerBodyCollider;
+        private bool isPressing;
 
         void Start()
         {
+            isPressing = false;
             playerSprite = GetComponent<SpriteRenderer>();
             weaponRenderer = GetComponentInChildren<WeaponController>().GetComponent<SpriteRenderer>();
             health = GetComponent<PlayerHealthManager>();
@@ -53,6 +56,42 @@ namespace Assets.Scripts.Control
 
             if (ControllerEnabled)
             {
+                // Free pressing flag if the orientation button is released
+                if (isPressing)
+                {
+                    isPressing =
+                        !((Input.GetKeyUp(Up) && LastMovedOrientation.Equals(Orientation.Up)) ||
+                          (Input.GetKeyUp(Down) && LastMovedOrientation.Equals(Orientation.Down)) ||
+                          (Input.GetKeyUp(Left) && LastMovedOrientation.Equals(Orientation.Left)) ||
+                          (Input.GetKeyUp(Right) &&
+                           LastMovedOrientation.Equals(Orientation.Right)));
+                }
+
+                // Set orientation if currently not set (ignore key up! that means they stop pressing that button)
+                if (!isPressing)
+                {
+                    if (Input.GetKey(Up) && !Input.GetKeyUp(Up))
+                    {
+                        isPressing = true;
+                        LastMovedOrientation = Orientation.Up;
+                    }
+                    else if (Input.GetKey(Down) && !Input.GetKeyUp(Down))
+                    {
+                        isPressing = true;
+                        LastMovedOrientation = Orientation.Down;
+                    }
+                    else if (Input.GetKey(Left) && !Input.GetKeyUp(Left))
+                    {
+                        isPressing = true;
+                        LastMovedOrientation = Orientation.Left;
+                    }
+                    else if (Input.GetKey(Right) && !Input.GetKeyUp(Right))
+                    {
+                        isPressing = true;
+                        LastMovedOrientation = Orientation.Right;
+                    }
+                }
+
                 var move = new Vector3();
 
                 if (Input.GetKey(Up))
@@ -61,21 +100,20 @@ namespace Assets.Scripts.Control
 
                     if (Input.GetKey(Left))
                     {
-                        LastMovedOrientation = Orientation.UpLeft;
+                        //LastMovedOrientation = Orientation.UpLeft;
                         move.x -= moveSpeed * Time.deltaTime;
                         playerSprite.flipX = true;
                     }
-
                     else if (Input.GetKey(Right))
                     {
-                        LastMovedOrientation = Orientation.UpRight;
+                        //LastMovedOrientation = Orientation.UpRight;
                         move.x += moveSpeed * Time.deltaTime;
                         playerSprite.flipX = false;
                     }
-                    else
-                    {
-                        LastMovedOrientation = Orientation.Up;
-                    }
+                    //else
+                    //{
+                    //    LastMovedOrientation = Orientation.Up;
+                    //}
                 }
                 else if (Input.GetKey(Down))
                 {
@@ -83,31 +121,30 @@ namespace Assets.Scripts.Control
 
                     if (Input.GetKey(Left))
                     {
-                        LastMovedOrientation = Orientation.DownLeft;
+                        //LastMovedOrientation = Orientation.DownLeft;
                         move.x -= moveSpeed * Time.deltaTime;
                         playerSprite.flipX = true;
                     }
-
                     else if (Input.GetKey(Right))
                     {
-                        LastMovedOrientation = Orientation.DownRight;
+                        //LastMovedOrientation = Orientation.DownRight;
                         move.x += moveSpeed * Time.deltaTime;
                         playerSprite.flipX = false;
                     }
-                    else
-                    {
-                        LastMovedOrientation = Orientation.Down;
-                    }
+                    //else
+                    //{
+                    //    LastMovedOrientation = Orientation.Down;
+                    //}
                 }
                 else if (Input.GetKey(Left))
                 {
-                    LastMovedOrientation = Orientation.Left;
+                    //LastMovedOrientation = Orientation.Left;
                     move.x -= moveSpeed * Time.deltaTime;
                     playerSprite.flipX = true;
                 }
                 else if (Input.GetKey(Right))
                 {
-                    LastMovedOrientation = Orientation.Right;
+                    //LastMovedOrientation = Orientation.Right;
                     move.x += moveSpeed * Time.deltaTime;
                     playerSprite.flipX = false;
                 }
@@ -152,16 +189,15 @@ namespace Assets.Scripts.Control
                     }
                 }
             }
-
             #endregion
         }
 
         private IEnumerator<WaitForSeconds> HandleiFrames(float startTime)
         {
-            var weapon = weaponRenderer.GetComponent<WeaponController>();
+            //var weapon = weaponRenderer.GetComponent<WeaponController>();
             var currColor = playerSprite.material.color;
 
-            weapon.WeaponEnable(false);
+            //weapon.WeaponEnable(false);
 
             while (Time.time - startTime < iframesTimeSeconds)
             {
@@ -174,7 +210,7 @@ namespace Assets.Scripts.Control
                 yield return new WaitForSeconds(iframesBlinkRateSeconds);
             }
 
-            weapon.WeaponEnable(true);
+            //weapon.WeaponEnable(true);
 
             // Make sure the player is shown by the end
             playerSprite.material.color = Color.white;
