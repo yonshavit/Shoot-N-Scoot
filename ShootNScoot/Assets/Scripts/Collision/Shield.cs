@@ -83,7 +83,7 @@ namespace Assets.Scripts.Collision
             }
         }
 
-        public override bool HandleCollision(ProjectileHead p, Vector3 hitNormal)
+        public override bool HandleCollision(ProjectileHead p, RaycastHit2D hit)
         {
             if (sfx.Length > 0)
             {
@@ -94,12 +94,12 @@ namespace Assets.Scripts.Collision
             if (Time.time - lastMeleeStart <= meleeDuration)
             {
                 // Parry! damage player as well
-                p.HandleMelee(hitNormal, prefab);
+                p.HandleMelee(hit.normal, prefab);
             }
             else
             {
                 // Normal deflect
-                p.HandleDeflection(hitNormal);
+                p.HandleDeflection(hit.normal);
             }
 
             return true;

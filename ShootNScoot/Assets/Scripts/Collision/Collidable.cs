@@ -9,6 +9,6 @@ namespace Assets.Scripts.Collision
 {
     public abstract class Collidable : MonoBehaviour
     {
-        public abstract bool HandleCollision(ProjectileHead p, Vector3 hitNormal);
+        public abstract bool HandleCollision(ProjectileHead p, RaycastHit2D hit);
     }
 }

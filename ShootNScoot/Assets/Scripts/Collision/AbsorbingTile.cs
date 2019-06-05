@@ -15,7 +15,7 @@ namespace Assets.Scripts.Collision
             audio = GetComponent<AudioSource>();
         }
 
-        public override bool HandleCollision(ProjectileHead p, Vector3 hitNormal)
+        public override bool HandleCollision(ProjectileHead p, RaycastHit2D hit)
         {
             if (sfx.Length > 0)
             {

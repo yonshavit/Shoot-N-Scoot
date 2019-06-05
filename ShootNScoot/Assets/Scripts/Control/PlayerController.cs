@@ -36,7 +36,7 @@ namespace Assets.Scripts.Control
         private BoxCollider2D playerBodyCollider;
         private bool isPressing;
 
-        void Start()
+        protected virtual void Start()
         {
             isPressing = false;
             playerSprite = GetComponent<SpriteRenderer>();
@@ -50,7 +50,7 @@ namespace Assets.Scripts.Control
             lastiFramesStart = -iframesTimeSeconds;
         }
 
-        void Update()
+        protected virtual void Update()
         {
             #region HandleMove
 
@@ -224,7 +224,7 @@ namespace Assets.Scripts.Control
             return Time.time - lastiFramesStart < iframesTimeSeconds;
         }
 
-        public override bool HandleCollision(ProjectileHead p, Vector3 hitNormal)
+        public override bool HandleCollision(ProjectileHead p, RaycastHit2D hit)
         {
             if (!IsIniFrame())
             {

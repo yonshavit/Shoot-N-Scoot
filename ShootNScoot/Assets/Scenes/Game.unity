@@ -266,8 +266,35 @@ PrefabInstance:
       propertyPath: shooter
       value: 
       objectReference: {fileID: 2035905935}
+    - target: {fileID: 3935398372159141893, guid: 87d780cddde8ba94084d2d21840f1b8a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905611743596636869, guid: 87d780cddde8ba94084d2d21840f1b8a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2905611743163821884, guid: 87d780cddde8ba94084d2d21840f1b8a,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87d780cddde8ba94084d2d21840f1b8a, type: 3}
+--- !u!114 &714996625 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 714996625, guid: 9fd63deb609f65b419ebffd3b3b195b2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1786351161745344520}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962291e172d52974d8334287604ca462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1110642215 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3935398372159141894, guid: 87d780cddde8ba94084d2d21840f1b8a,
@@ -358,18 +385,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e97cb1a750f61814fa75c98c5ea5e1eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1832767928 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1767531005, guid: 9fd63deb609f65b419ebffd3b3b195b2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1786351161745344520}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b3ea6f52a628a44ea55866a96ef772d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2035905935 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 437675796322760630, guid: ca62b02db59e20146b9a00f83b8fd947,
@@ -403,7 +418,7 @@ PrefabInstance:
         type: 3}
       propertyPath: defender
       value: 
-      objectReference: {fileID: 1832767928}
+      objectReference: {fileID: 714996625}
     - target: {fileID: 921677865415977852, guid: 768cfbc2ad213fb42b02f4d2af8b0c0e,
         type: 3}
       propertyPath: turrets.Array.data[0]
@@ -667,10 +682,6 @@ PrefabInstance:
       propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1805874519}
-    - target: {fileID: 152997303, guid: 9fd63deb609f65b419ebffd3b3b195b2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fd63deb609f65b419ebffd3b3b195b2, type: 3}
 --- !u!1001 &7491195524367772136
@@ -826,5 +837,9 @@ PrefabInstance:
       propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1805874519}
+    - target: {fileID: 1627989407, guid: ca62b02db59e20146b9a00f83b8fd947, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca62b02db59e20146b9a00f83b8fd947, type: 3}

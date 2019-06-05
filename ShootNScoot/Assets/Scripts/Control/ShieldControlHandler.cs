@@ -32,9 +32,10 @@ namespace Assets.Scripts.Control
         {
             transform.rotation = Quaternion.Euler(0, 0, rotationAngle * (int)player.LastMovedOrientation);
 
+            // Not needed for current shield!
             // Flip to maintain weapon orientation
-            var z = transform.rotation.eulerAngles.z;
-            shieldRenderer.flipY = z > 90 && z < 270;
+            //var z = transform.rotation.eulerAngles.z;
+            //shieldRenderer.flipY = z > 90 && z < 270;
         }
 
         public override void WeaponEnable(bool enabled)
