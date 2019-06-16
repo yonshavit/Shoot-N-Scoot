@@ -15,17 +15,17 @@ namespace Assets.Scripts.Control
     {
         private float rotationAngle;
         private Shield shield;
-        private SpriteRenderer shieldRenderer;
         private PlayerController player;
         private BoxCollider2D shieldCollider2D;
+        //private SpriteRenderer shieldRenderer;
 
         void Start()
         {
             rotationAngle = 360f / Enum.GetNames(typeof(Orientation)).Length; 
             shield = GetComponent<Shield>();
-            shieldRenderer = GetComponent<SpriteRenderer>();
             shieldCollider2D = GetComponent<BoxCollider2D>();
             player = transform.parent.GetComponent<PlayerController>();
+            //shieldRenderer = GetComponent<SpriteRenderer>();
         }
 
         void Update()

@@ -837,9 +837,5 @@ PrefabInstance:
       propertyPath: onHealthEmptyHandler.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1805874519}
-    - target: {fileID: 1627989407, guid: ca62b02db59e20146b9a00f83b8fd947, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca62b02db59e20146b9a00f83b8fd947, type: 3}

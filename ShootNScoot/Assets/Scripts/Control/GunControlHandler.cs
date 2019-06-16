@@ -51,7 +51,7 @@ namespace Assets.Scripts.Control
 
                 if (Input.GetMouseButtonDown(0) && weaponEnabled)
                 {
-                    if (Time.time - lastShotTime > shotCooldownSeconds && !player.IsIniFrame())
+                    if (Time.time - lastShotTime > shotCooldownSeconds /*&& !player.IsIniFrame()*/)
                     {
                         // Cooldown has passed, player may shoot again
                         lastShotTime = Time.time;

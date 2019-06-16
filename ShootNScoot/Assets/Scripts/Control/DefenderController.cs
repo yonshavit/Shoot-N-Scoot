@@ -50,14 +50,15 @@ namespace Assets.Scripts.Control
 
             var xOffset = shieldCollider2D.offset.x - (shieldCollider2D.size.x / 2);
 
+            // Fix the colliders to seal the body of the defender as well as the space from it to the shield
             switch (LastMovedOrientation)
             {
                 case Orientation.Right:
                     LeftCollider.points = pointsLeft.Clone() as Vector2[];
                     RightCollider.points = new[]
                     {
-                        pointsRight[0] + new Vector2(xOffset - RightCollider.offset.x, 0),
-                        pointsRight[1] + new Vector2(xOffset - RightCollider.offset.x, 0)
+                        pointsRight[0] + new Vector2(xOffset - RightCollider.offset.x - Mathf.Epsilon, 0),
+                        pointsRight[1] + new Vector2(xOffset - RightCollider.offset.x - Mathf.Epsilon, 0)
                     };
                     TopCollider.points = new[]
                     {
@@ -85,8 +86,8 @@ namespace Assets.Scripts.Control
                     };
                     TopCollider.points = new[]
                     {
-                        pointsTop[0] + new Vector2(0, xOffset - TopCollider.offset.y),
-                        pointsTop[1] + new Vector2(0, xOffset - TopCollider.offset.y)
+                        pointsTop[0] + new Vector2(0, xOffset - TopCollider.offset.y - Mathf.Epsilon),
+                        pointsTop[1] + new Vector2(0, xOffset - TopCollider.offset.y - Mathf.Epsilon)
                     };
 
                     break;
@@ -96,8 +97,8 @@ namespace Assets.Scripts.Control
                     RightCollider.points = pointsRight.Clone() as Vector2[];
                     LeftCollider.points = new[]
                     {
-                        pointsLeft[0] + new Vector2(xOffset - LeftCollider.offset.x, 0),
-                        pointsLeft[1] + new Vector2(xOffset - LeftCollider.offset.x, 0)
+                        pointsLeft[0] + new Vector2(xOffset - LeftCollider.offset.x - Mathf.Epsilon, 0),
+                        pointsLeft[1] + new Vector2(xOffset - LeftCollider.offset.x - Mathf.Epsilon, 0)
                     };
                     TopCollider.points = new[]
                     {
@@ -127,8 +128,8 @@ namespace Assets.Scripts.Control
                     };
                     BottomCollider.points = new[]
                     {
-                        pointsBottom[0] + new Vector2(0, xOffset - BottomCollider.offset.y),
-                        pointsBottom[1] + new Vector2(0, xOffset - BottomCollider.offset.y)
+                        pointsBottom[0] + new Vector2(0, xOffset - BottomCollider.offset.y - Mathf.Epsilon),
+                        pointsBottom[1] + new Vector2(0, xOffset - BottomCollider.offset.y - Mathf.Epsilon)
                     };
 
                     break;

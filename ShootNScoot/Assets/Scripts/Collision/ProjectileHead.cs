@@ -71,29 +71,11 @@ namespace Assets.Scripts.Collision
             HandleImmediateAbsorption();
         }
 
-        //private void OnCollisionEnter2D(Collision2D collision)
-        //{
-        //    Debug.Log("Entered collision");
-        //    var start = transform.position;
-        //    var collidable = collision.gameObject.GetComponentInParent<Collidable>();
-
-        //    // If collided with a collidable object, let it handle this collision and if returns true then move anyways
-        //    if (collidable != null && collidable.HandleCollision(this, collision.contacts[0].normal))
-        //    {
-        //        transform.position = start + manager.GetFrameMoveSpeed(transform.right);
-        //    }
-        //}
-
         private void Move()
         {
             var start = transform.position;
             var end = start + manager.GetFrameMoveSpeed(transform.right);
-            //var hits = new List<RaycastHit2D>();
-            //var filter = new ContactFilter2D
-            //{
-            //    layerMask = blockingLayer
-            //};
-            //Physics2D.Raycast(start, end - start, filter, hits, (end - start).magnitude);
+
             var hit = Physics2D.Raycast(start, end - start, (end - start).magnitude, blockingLayer);
 
             // Move if did not hit anything or react if did
